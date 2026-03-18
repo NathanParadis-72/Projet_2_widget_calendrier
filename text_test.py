@@ -1,8 +1,8 @@
 #Variables d'évenment
 
 lundi = {
-    "date" = 20260318
-    "timestart" = 130000
-    "timeend" = 140000
-    "summary" = "testevent"
+    "event_name" : "test"
+    "date" : 20260318
+    "timestart" : 1300
+    "timeend" : 1500
 }

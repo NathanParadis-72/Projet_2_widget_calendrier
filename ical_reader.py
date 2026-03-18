@@ -3,6 +3,8 @@ programme pour extraire de l'information pertinente d'un fichier .ical, afin de 
 
 """
 
+
+"""
 #test de lecture de fichier
 
 file_path = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
@@ -13,7 +15,7 @@ filestring = filecontent.read()
 
 print(filestring)
 
-
+"""
 
 
 
@@ -58,7 +60,7 @@ dictlist = [lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche]
 #utiliser une for loop pour append des nouveaux events a chaque jour
 
 #for event in calendar_file:
-dictlist[0]["nomevenement"] = "nouvelle valeur" #va chercher dans la liste le dictionnaire de la journée et rajoute une nouvelle key
+dictlist[0]["nom evenement"] = "nouvelle valeur" #va chercher dans la liste le dictionnaire de la journée et rajoute une nouvelle key
 
 
 
