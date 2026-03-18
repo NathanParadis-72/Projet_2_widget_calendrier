@@ -47,7 +47,7 @@ dimanche.grid (row=0, column=6)
 
 
 
-separator = ttk.Separator(root, orient='vertical')
+separator = tk.Separator(root, orient='vertical')
 
 separator.grid(row=0, column=1, rowspan=2, sticky='ns', padx=5, pady=5)
 
