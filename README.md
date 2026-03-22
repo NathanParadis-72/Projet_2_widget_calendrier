@@ -24,11 +24,14 @@ TEXT ICI
 
 
 # Fonctionalités:
-TEXT ICI
+Entrer un fichier .ical/.ics pour avoir access a son calendrier, (REFRESH AUTOMATIQUE?), (LA FENETRE S'OUVRE TOUT DE SEUL AT LAUNCH?), la fenêtre widget peut etre agrandie ou rapetissée selon la préférence, on peut cocher les activités de type "tache" pour les marquer comme complétées. (ETC ETC??)
 <br><br>
 
 
 # Limitations:
-TEXT ICI
+Pas tous les fichiers .ical/.ics ont toutes les informations de votre calendrier, il semble y avoir un probleme avec les calendriers qui existent depuis longtemps et ou qui ont été créés par un autre utilisateur avant de vous être transféré. Le programme ne peut pas prendre plus d'un fichier calendrier a la fois (Ajouter ca?) (LE PROGRAMME AVERTITI S'IL N'Y A RIEN DANS LES PROCHAINES SEMAINES DU CALENDRIER?)
 <br><br>
 
+
+
+# AUTRES CATÉGORIES TRUCS A DIRE DANS LE README?
