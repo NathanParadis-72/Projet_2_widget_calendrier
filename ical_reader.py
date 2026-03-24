@@ -4,18 +4,41 @@ programme pour extraire de l'information pertinente d'un fichier .ical, afin de 
 """
 
 
-"""
+
 #test de lecture de fichier
 
-file_path = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
+fichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
 
-filecontent = open(file_path, "r") #open('nomdufichier', 'parametre') le parametre 'r' fait que le open peut juste lire le fichier
+calendrier = open(fichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' fait que le open peut juste lire le fichier
+lirecal = calendrier.read()
+calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec des virgules pour pouvoir separer les composantes plus tard
+listecal = calpropre.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
 
-filestring = filecontent.read()
 
-print(filestring)
+print(listecal)
 
-"""
+
+
+#remove list item 0 a la place d'ecrire une variable nombre avec une fonction "reverse append"
+
+nombre = 1
+for item in listecal:
+    evennement = listecal[nombre]
+    options = str(evennement).split(",")
+    print(evennement)
+
+    nombre += 1
+
+
+
+
+
+
+
+
+
+
+
 
 import datetime #pour avoir des fonctions de date
 
@@ -23,9 +46,9 @@ import datetime #pour avoir des fonctions de date
 
 #dictionnaires de la semaine
 
-lundi = {
-    "event1" : dictionnaire_event
-}
+lundi = [{
+    "event1" : "dictionnaire_event"
+}]
 
 mardi = []
 
@@ -80,19 +103,19 @@ def infos_evenement(fichier_ical):
 #utiliser une for loop pour append des nouveaux events a chaque jour
 
 
-def rajout_evenement_dict(date, nom, heuredebut, heurefin)
+def rajout_evenement_dict(date, nom, heuredebut, heurefin):
 
-date = 20260318
-semaine = date + 7
+    date = 20260318
+    semaine = date + 7
 
-while date < semaine:
+    while date < semaine:
 
-    for event in fichier_ical:
-        journee = "date" #date de la journée qu'on veut dans une variable qu'on modifie a priori, trouver la date dans le ical
-        dictlist[journee]["nom evenement"] = "valeur nom" #va chercher dans la liste le dictionnaire de la journée et rajoute une nouvelle key
-        dictlist[journee]["date"] = date #date en int
-        dictlist[journee]["heure début"] = "valeur heure int"
-        dictlist[journee]["heure fin"] = "valeur heure int (ex: 1315 pour 1h15 de l'apres midi)"
+        for event in fichier_ical:
+            journee = "date" #date de la journée qu'on veut dans une variable qu'on modifie a priori, trouver la date dans le ical
+            dictlist[journee]["nom evenement"] = "valeur nom" #va chercher dans la liste le dictionnaire de la journée et rajoute une nouvelle key
+            dictlist[journee]["date"] = date #date en int
+            dictlist[journee]["heure début"] = "valeur heure int"
+            dictlist[journee]["heure fin"] = "valeur heure int (ex: 1315 pour 1h15 de l'apres midi)"
 
 
 
