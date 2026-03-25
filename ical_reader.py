@@ -15,12 +15,14 @@ calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec
 listecal = calpropre.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
 
 
-print(listecal)
+# print(listecal)
 
+
+listecal.remove(listecal[0])
 
 
 #remove list item 0 a la place d'ecrire une variable nombre avec une fonction "reverse append"
-
+"""
 nombre = 1
 for item in listecal:
     evennement = listecal[nombre]
@@ -28,7 +30,7 @@ for item in listecal:
     print(evennement)
 
     nombre += 1
-
+"""
 
 
 
