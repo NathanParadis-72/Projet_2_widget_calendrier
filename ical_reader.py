@@ -51,7 +51,7 @@ for evenement in listecal:
     cles_evenement[3] = cles_evenement[3].replace("T", ":")
     cles_evenement[3] = cles_evenement[3].split(":")
 
-    print(cles_evenement)
+    print(cles_evenement[1])
 
 
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
@@ -82,15 +82,14 @@ for evenement in listecal:
 
 
 """
-['DTSTART', ['20260314', '160000Z'], ' DTEND', ['20260314', '170000Z'], ' SUMMARY', 'TEST2']
-['DTSTART', ['20260312', '133000Z'], ' DTEND', ['20260312', '153000Z'], ' SUMMARY', 'TESTTESTTEST']
+[{'nom': 'TEST2', 'debut': ['20260314', '160000Z'], 'fin': ['20260314', '170000Z']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '133000Z'], 'fin': ['20260312', '153000Z']}]
 = listelundi
 """
 
 
 
 
-#print(listelundi)
+print(listelundi)
 #print(listelundi[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
 
 
