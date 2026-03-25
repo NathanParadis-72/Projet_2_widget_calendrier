@@ -69,6 +69,13 @@ for evenement in listecal:
     cles_evenement[1][1] = heureformattee
 
 
+    stringheure = cles_evenement[3][1]
+    heure = stringheure[:-2]
+    heureformattee = heure[:2] + "h" + heure[2:]
+    
+    cles_evenement[3][1] = heureformattee
+
+
 
     print(cles_evenement[1])
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
@@ -99,14 +106,14 @@ for evenement in listecal:
 
 
 """
-[{'nom': 'TEST2', 'debut': ['20260314', '160000Z'], 'fin': ['20260314', '170000Z']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '133000Z'], 'fin': ['20260312', '153000Z']}]
+[{'nom': 'TEST2', 'debut': ['20260314', '16h00'], 'fin': ['20260314', '17h00']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '13h30'], 'fin': ['20260312', '15h30']}]
 = listesemaine
 """
 
 
 
 
-####print(listesemaine)
+print(listesemaine)
 #print(listesemaine[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
 
 
