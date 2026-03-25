@@ -3,14 +3,18 @@ from datetime import datetime, timedelta
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
-root = tk.Tk(baseName= 'Coming Week')
+root = tk.Tk()
 
+#necessaire a faire fonctionner GUI avec python
+var1 = tk.IntVar()
+var2 = tk.IntVar()
 
 #obtient seulement la date d'aujourd'hui
 now = datetime.now().date()
 
 #cree un nombre a partir de la date pour comparer
-now_compare = datetime.now().strftime("%y%m%d")
+now_compare = datetime.now().strftime("%Y%m%d")
+print(now_compare)
 
 #donne la date des jours a venir avec des additions de journees
 jour2 = now + timedelta(days=1)
@@ -20,11 +24,16 @@ jour5 = now + timedelta(days=4)
 jour6 = now + timedelta(days=5)
 jour7 = now + timedelta(days=6)
 
-liste_lundi = [{"nom": 'nom event', 'debut': '20260314T160000Z', 'temps de fin': '20260314T170000Z'}, {"nom de l'evenement": 'TESTTESTTEST', 'temps de debut': '20260312T133000Z', 'temps de fin': '20260312T153000Z'}]
+ical = [{'nom': 'TEST2', 'debut': ['20260325', '160000Z'], 'fin': ['20260314', '170000Z']}, {'nom': 'TESTTESTTEST', 'debut': ['20260325', '133000Z'], 'fin': ['20260312', '153000Z']}]
 
-#necessaire a faire fonctionner GUI avec python
-var1 = tk.IntVar()
-var2 = tk.IntVar()
+Lundi = [[],[],[],[],[],[],[]]
+
+for event in range(len(ical)):
+    if ical[event]['debut'][0] == now_compare:
+        Lundi[event].append(ical[event])
+        print(Lundi[event])
+
+
 
 
 #rend tout ce qui est rouge, transparent
@@ -37,7 +46,7 @@ root.configure(bg='red')
 # Label est du texte ecrit. 
 lundi = tk.Label(text=f" {now}             ", bg='red', fg='white', font = 20)
 lundi.grid(row=0, column=0)
-lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f"{liste_lundi[0]["nom"]}\n {liste_lundi[0]["debut"]}" , bg="red", fg='white', font = ("Arial", 10))
+lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f"{Lundi[0]}\n\n {Lundi[1]} \n {Lundi[2]} \n {Lundi[3]} \n {Lundi[4]}"  , bg="red", fg='white', font = ("Arial", 10))
 lundi_event.grid(row=1, column=0)
 
 
