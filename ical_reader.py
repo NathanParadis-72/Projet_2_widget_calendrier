@@ -12,25 +12,27 @@ fichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi
 calendrier = open(fichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' fait que le open peut juste lire le fichier
 lirecal = calendrier.read()
 calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec des virgules pour pouvoir separer les composantes plus tard
-listecal = calpropre.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
+calproprefinal = calpropre.replace(",END:VCALENDAR", "")
+listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
 
 
 # print(listecal)
 
-
 listecal.remove(listecal[0])
 
+lundi = [{
+    "event1" : "dictionnaire_event"
+}]
 
 #remove list item 0 a la place d'ecrire une variable nombre avec une fonction "reverse append"
-"""
-nombre = 1
-for item in listecal:
-    evennement = listecal[nombre]
-    options = str(evennement).split(",")
-    print(evennement)
 
-    nombre += 1
-"""
+
+for evennement in listecal:
+    options = str(evennement).split(",")
+    list(options)
+    lundi["date"] = options[1]
+
+print(lundi)
 
 
 
