@@ -52,6 +52,8 @@ for evenement in listecal:
     #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
     listelundi.append(nouvel_evenement)
 
+    
+
 
 
 
