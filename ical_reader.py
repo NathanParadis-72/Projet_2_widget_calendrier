@@ -5,7 +5,64 @@ programme pour extraire de l'information pertinente d'un fichier .ical afin de p
 
 
 
-#test de lecture de fichier
+
+
+
+
+
+
+
+#fonction pour mieux trier les listes et les rendre plus propres
+def trieur_liste(liste_evenement):
+    """
+    Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de deux items
+    a partir des items 1 et 3 de la liste a l'entrée.
+    Entrées: liste d'un evenement ical avec la date et heure de début a la position 1, et la date et heure de fin a la position 3
+    Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
+    a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la position 3 qui 
+    contient la date et l'heure de fin de l'evenement.
+    
+    """
+    for i in range(4):
+        if i == 0 or i == 2 or i == 4:
+            continue
+        else:
+            liste_evenement[i] = liste_evenement[i].replace("T", ":")
+            liste_evenement[i] = liste_evenement[i].replace("Z", "")
+            liste_evenement[i] = liste_evenement[i].split(":")
+    
+
+
+
+#fonction pour formater les heures en format plus lisible
+def formateur_heure(liste_evenement):
+    """
+    Fonction pour formater des heures de format "HHMMSS" en heures de format "HHhMM"
+    Entrées: Liste d'evenement triée par la fonction "trieur liste", afin que les heures soient séparées des dates
+    Sorties: Pas de return, modifie seulement la liste afin d'avoir des heures de format HHhMM (13h30 par exemple) pour pouvoir les
+    envoyer au code du widget calendrier sans avoir à les traduire plus tard.
+    """
+    for i in range(4):
+        if i == 0 or i == 2 or i == 4:
+            continue
+        else:
+            stringheure = liste_evenement[i][1]
+            heure = stringheure[:-2]
+            heureformatee = heure[:2] + "h" + heure[2:]
+    
+            liste_evenement[i][1] = heureformatee
+
+
+
+
+
+
+
+
+
+
+
+
 
 fichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
 
@@ -15,25 +72,23 @@ calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec
 calproprefinal = calpropre.replace(",END:VCALENDAR", "")
 listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
 
-
-# print(listecal)
-
 listecal.remove(listecal[0])
 
-# print(listecal)
 
 
 
 
+#création de la liste mere du calendrier, sert a plus qu'une semaine, changer le nom au besoin! ! !
 listesemaine = []
 
 
 
 
+
 for evenement in listecal:
+    #creer une liste a partir des evennements dans la liste du calendrier
     infos_evenement = str(evenement).split(",")
     
-    list(infos_evenement)
     
     #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, plus le nom
     infos_evenement.remove(infos_evenement[0]) 
@@ -43,45 +98,26 @@ for evenement in listecal:
     infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
 
     #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
-    cles_evenement = str(infos_evenement_propre).split(":")
+    liste_evenement = str(infos_evenement_propre).split(":")
     
     
 
 
-
-    #fonction ici, pour clean les listes
-    cles_evenement[1] = cles_evenement[1].replace("T", ":")
-    cles_evenement[1] = cles_evenement[1].replace("Z", "")
-    cles_evenement[1] = cles_evenement[1].split(":")
-    
-    cles_evenement[3] = cles_evenement[3].replace("T", ":")
-    cles_evenement[3] = cles_evenement[3].replace("Z", "")
-    cles_evenement[3] = cles_evenement[3].split(":")
-
-
+    #fonction pour faire des listes plus propres et mieux triées
+    trieur_liste(liste_evenement)
 
     
-    #fonction ici, pour formatter les heures
-    stringheure = cles_evenement[1][1]
-    heure = stringheure[:-2]
-    heureformattee = heure[:2] + "h" + heure[2:]
+
+    #fonction pour formater les heures pour les rendre plus facile a lire sur le calendrier
+    formateur_heure(liste_evenement)
     
-    cles_evenement[1][1] = heureformattee
-
-
-    stringheure = cles_evenement[3][1]
-    heure = stringheure[:-2]
-    heureformattee = heure[:2] + "h" + heure[2:]
-    
-    cles_evenement[3][1] = heureformattee
 
 
 
-    print(cles_evenement[1])
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
-    nouvel_evenement = {"nom" : cles_evenement[5], "debut" : cles_evenement[1], "fin" : cles_evenement[3]}
+    nouvel_evenement = {"nom" : liste_evenement[5], "debut" : liste_evenement[1], "fin" : liste_evenement[3]}
     
-    #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
+    #et on rajoute la liste de l'événement dans le prochain item de la liste calendrier mere
     listesemaine.append(nouvel_evenement)
 
     
@@ -95,13 +131,27 @@ for evenement in listecal:
 
 
 
-#OU JE SUIS RENDU: jai toutes les données dans des dictionnaires dans des listes, je vais pouvoir commencer a faire une fonction pour calculer les dates
-#et les autres fonctions qu'Arnaud a besoin pour son widget, plus je devrais voir si on save comme ca on a pas a refaire tous les calculs a chaque fois qu'on ouvre
+
+
+
+
+
+print(listesemaine)
+#print(listesemaine[0]["debut"]) #premier item de la liste d'evenements, clé pour output la liste de date+heure de début, pour seulement avoir l'heure, rajouter [1], pour la date, rajouter [0]
+
+
+
+
+
+
+
+
+
+
+
+
+#OU JE SUIS RENDU: je devrais voir si on save comme ca on a pas a refaire tous les calculs a chaque fois qu'on ouvre
 #le code, ou et si oui, rajoute un output a un txt file ou un json pour avoir les differents evenements sauvegardés en quelque part
-
-#il faudrait aussi que je fasse une fonction pour voir quelle date on est, quel jour, et apres aller mettre les infos des bonnes journées dans les bonnes
-#listes pour pas chier tout le calendrier
-
 
 
 
@@ -109,55 +159,6 @@ for evenement in listecal:
 [{'nom': 'TEST2', 'debut': ['20260314', '16h00'], 'fin': ['20260314', '17h00']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '13h30'], 'fin': ['20260312', '15h30']}]
 = listesemaine
 """
-
-
-
-
-print(listesemaine)
-#print(listesemaine[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
-
-
-
-
-
-
-
-
-
-
-
-
-
-import datetime #pour avoir des fonctions de date?
-
-
-
-
-
-
-
-#fonction pour mettre des donnés spécifiques de ficher ical dans des variables
-
-def info_evenement(fichier_ical):
-    
-    for text in fichier_ical:
-        """sortir ces infos entre BEGIN:VEVENT et END:VEVENT et les mettre dans variable "text"?"""
-
-        date = "date trouvée dans le ical"
-        heuredebut = "heure début trouvée dans ical"
-        heurefin = "heure fin trouvée dans ical"
-        nom_evenement = "nom d'evenement trouvé dans le ical (summary)"
-    return (date, nom_evenement, heuredebut, heurefin)
-
-
-
-
-
-
-
-
-
-
 
 
 
