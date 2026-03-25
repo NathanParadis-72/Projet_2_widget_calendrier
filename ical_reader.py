@@ -47,7 +47,7 @@ for evenement in listecal:
     
     
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
-    nouvel_evenement = [{"nom de l'evenement" : cles_evenement[5]}, {"temps de debut" : cles_evenement[1]}, {"temps de fin" : cles_evenement[3]}]
+    nouvel_evenement = {"nom de l'evenement" : cles_evenement[5], "temps de debut" : cles_evenement[1], "temps de fin" : cles_evenement[3]}
     
     #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
     listelundi.append(nouvel_evenement)
@@ -73,13 +73,16 @@ for evenement in listecal:
 
 
 
-"""[[{"nom de l'evenement": 'TESTTESTTEST'}, {'temps de debut': '20260312T133000Z'}, {'temps de fin': '20260312T153000Z'}]]
-= listelundi[0][0]"""
+"""
+[{"nom de l'evenement": 'TEST2', 'temps de debut': '20260314T160000Z', 'temps de fin': '20260314T170000Z'}, {"nom de l'evenement": 'TESTTESTTEST', 'temps de debut': '20260312T133000Z', 'temps de fin': '20260312T153000Z'}]
+= listelundi
+"""
+
 
 
 
 print(listelundi)
-#print(listelundi[0][0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
+#print(listelundi[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
 
 
 
