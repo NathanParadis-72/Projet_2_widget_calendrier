@@ -18,3 +18,18 @@ print(temps.strftime("%A, %p"))
 # %M minute: 00 01 ... 59
 # %S seconde: 00 01 ... 59
 # %c date et heure complete: Mon Feb 28 08:30:27 2026
+
+
+
+
+
+liste = [{"time" : ['20260312', '133000']}]
+
+stringheure = liste[0]["time"][1]
+newheure = stringheure[:-2]
+newheure2 = newheure[:2] + "h" + newheure[2:]
+print(newheure2)
+
+my_string = "hello"
+new_string = my_string[:-2] + "l" + my_string[-2:]
+print(new_string)

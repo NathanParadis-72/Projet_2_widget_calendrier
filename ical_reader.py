@@ -20,12 +20,12 @@ listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les
 
 listecal.remove(listecal[0])
 
-print(listecal)
+# print(listecal)
 
 
 
 
-listelundi = []
+listesemaine = []
 
 
 
@@ -45,20 +45,37 @@ for evenement in listecal:
     #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
     cles_evenement = str(infos_evenement_propre).split(":")
     
+    
 
+
+
+    #fonction ici, pour clean les listes
     cles_evenement[1] = cles_evenement[1].replace("T", ":")
+    cles_evenement[1] = cles_evenement[1].replace("Z", "")
     cles_evenement[1] = cles_evenement[1].split(":")
+    
     cles_evenement[3] = cles_evenement[3].replace("T", ":")
+    cles_evenement[3] = cles_evenement[3].replace("Z", "")
     cles_evenement[3] = cles_evenement[3].split(":")
 
+
+
+    
+    #fonction ici, pour formatter les heures
+    stringheure = cles_evenement[1][1]
+    heure = stringheure[:-2]
+    heureformattee = heure[:2] + "h" + heure[2:]
+    
+    cles_evenement[1][1] = heureformattee
+
+
+
     print(cles_evenement[1])
-
-
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
     nouvel_evenement = {"nom" : cles_evenement[5], "debut" : cles_evenement[1], "fin" : cles_evenement[3]}
     
     #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
-    listelundi.append(nouvel_evenement)
+    listesemaine.append(nouvel_evenement)
 
     
 
@@ -83,14 +100,14 @@ for evenement in listecal:
 
 """
 [{'nom': 'TEST2', 'debut': ['20260314', '160000Z'], 'fin': ['20260314', '170000Z']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '133000Z'], 'fin': ['20260312', '153000Z']}]
-= listelundi
+= listesemaine
 """
 
 
 
 
-print(listelundi)
-#print(listelundi[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
+####print(listesemaine)
+#print(listesemaine[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
 
 
 
