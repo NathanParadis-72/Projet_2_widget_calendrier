@@ -58,6 +58,9 @@ for evenement in listecal:
 #et les autres fonctions qu'Arnaud a besoin pour son widget, plus je devrais voir si on save comme ca on a pas a refaire tous les calculs a chaque fois qu'on ouvre
 #le code, ou et si oui, rajoute un output a un txt file ou un json pour avoir les differents evenements sauvegardés en quelque part
 
+#il faudrait aussi que je fasse une fonction pour voir quelle date on est, quel jour, et apres aller mettre les infos des bonnes journées dans les bonnes
+#listes pour pas chier tout le calendrier
+
 
 
 
