@@ -20,7 +20,7 @@ listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les
 
 listecal.remove(listecal[0])
 
-
+print(listecal)
 
 
 
@@ -71,7 +71,10 @@ for evenement in listecal:
 
 
 
-    
+"""[[{"nom de l'evenement": 'TESTTESTTEST'}, {'temps de debut': '20260312T133000Z'}, {'temps de fin': '20260312T153000Z'}]]
+= listelundi[0][0]"""
+
+
 
 print(listelundi)
 #print(listelundi[0][0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
