@@ -40,14 +40,22 @@ for evenement in listecal:
     for i in range(3): infos_evenement.remove(infos_evenement[-1])
     for i in range(6): infos_evenement.remove(infos_evenement[2])
     
-    infos_evenement_cleaned = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
+    infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
 
     #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
-    cles_evenement = str(infos_evenement_cleaned).split(":")
+    cles_evenement = str(infos_evenement_propre).split(":")
     
-    
+
+    cles_evenement[1] = cles_evenement[1].replace("T", ":")
+    cles_evenement[1] = cles_evenement[1].split(":")
+    cles_evenement[3] = cles_evenement[3].replace("T", ":")
+    cles_evenement[3] = cles_evenement[3].split(":")
+
+    print(cles_evenement)
+
+
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
-    nouvel_evenement = {"nom de l'evenement" : cles_evenement[5], "temps de debut" : cles_evenement[1], "temps de fin" : cles_evenement[3]}
+    nouvel_evenement = {"nom" : cles_evenement[5], "debut" : cles_evenement[1], "fin" : cles_evenement[3]}
     
     #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
     listelundi.append(nouvel_evenement)
@@ -74,14 +82,15 @@ for evenement in listecal:
 
 
 """
-[{"nom de l'evenement": 'TEST2', 'temps de debut': '20260314T160000Z', 'temps de fin': '20260314T170000Z'}, {"nom de l'evenement": 'TESTTESTTEST', 'temps de debut': '20260312T133000Z', 'temps de fin': '20260312T153000Z'}]
+['DTSTART', ['20260314', '160000Z'], ' DTEND', ['20260314', '170000Z'], ' SUMMARY', 'TEST2']
+['DTSTART', ['20260312', '133000Z'], ' DTEND', ['20260312', '153000Z'], ' SUMMARY', 'TESTTESTTEST']
 = listelundi
 """
 
 
 
 
-print(listelundi)
+#print(listelundi)
 #print(listelundi[0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
 
 
