@@ -1,5 +1,5 @@
 """
-programme pour extraire de l'information pertinente d'un fichier .ical, afin de pouvoir l'utiliser dans le widget
+programme pour extraire de l'information pertinente d'un fichier .ical afin de pouvoir l'utiliser dans le widget calendrier
 
 """
 
@@ -20,13 +20,15 @@ listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les
 
 listecal.remove(listecal[0])
 
-lundi = [{
-    "event1" : "dictionnaire_event"
-}]
 
-#remove list item 0 a la place d'ecrire une variable nombre avec une fonction "reverse append"
+
+
+
 
 listelundi = []
+
+
+
 
 for evenement in listecal:
     infos_evenement = str(evenement).split(",")
@@ -49,6 +51,11 @@ for evenement in listecal:
     
     #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
     listelundi.append(nouvel_evenement)
+
+
+
+
+
 
 
 
