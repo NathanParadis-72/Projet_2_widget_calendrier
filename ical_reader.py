@@ -34,8 +34,6 @@ def trieur_liste(liste_evenement):
 
 
 
-
-
 #fonction pour formater les heures en format plus lisible
 def formateur_heure(liste_evenement):
     """
