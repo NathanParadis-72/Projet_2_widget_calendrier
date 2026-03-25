@@ -13,12 +13,12 @@ now = datetime.now().date()
 now_compare = datetime.now().strftime("%y%m%d")
 
 #donne la date des jours a venir avec des additions de journees
-day2 = now + timedelta(days=1)
-day3 = now + timedelta(days=2)
-day4 = now + timedelta(days=3)
-day5 = now + timedelta(days=4)
-day6 = now + timedelta(days=5)
-day7 = now + timedelta(days=6)
+jour2 = now + timedelta(days=1)
+jour3 = now + timedelta(days=2)
+jour4 = now + timedelta(days=3)
+jour5 = now + timedelta(days=4)
+jour6 = now + timedelta(days=5)
+jour7 = now + timedelta(days=6)
 
 liste_lundi = [{"nom": 'nom event', 'debut': '20260314T160000Z', 'temps de fin': '20260314T170000Z'}, {"nom de l'evenement": 'TESTTESTTEST', 'temps de debut': '20260312T133000Z', 'temps de fin': '20260312T153000Z'}]
 
@@ -41,27 +41,27 @@ lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f"{li
 lundi_event.grid(row=1, column=0)
 
 
-mardi = tk.Label(text = f" {day2}             ", bg='red', fg='white', font = 20)
+mardi = tk.Label(text = f" {jour2}             ", bg='red', fg='white', font = 20)
 mardi.grid (row=0, column=1)
 
 
-mercredi = tk.Label(text = f" {day3}         ", bg='red', fg='white', font = 20)
+mercredi = tk.Label(text = f" {jour3}         ", bg='red', fg='white', font = 20)
 mercredi.grid (row=0, column=2)
 
 
-jeudi = tk.Label(text = f" {day4}        ", bg='red', fg='white', font = 20)
+jeudi = tk.Label(text = f" {jour4}        ", bg='red', fg='white', font = 20)
 jeudi.grid (row=0, column=3)
 
 
-vendredi = tk.Label(text = f" {day5}          ", bg='red', fg='white', font = 20)
+vendredi = tk.Label(text = f" {jour5}          ", bg='red', fg='white', font = 20)
 vendredi.grid (row=0, column=4)
 
 
-samedi = tk.Label(text = f" {day6}           ", bg='red', fg='white', font = 20)
+samedi = tk.Label(text = f" {jour6}           ", bg='red', fg='white', font = 20)
 samedi.grid (row=0, column=5)
 
 
-dimanche = tk.Label(text = f" {day7}         ", bg='red', fg='white', font = 20)
+dimanche = tk.Label(text = f" {jour7}         ", bg='red', fg='white', font = 20)
 dimanche.grid (row=0, column=6)
 
 
