@@ -11,7 +11,7 @@ now = datetime.now().date()
 #a confirmer ce que cela fait!!!!
 root.attributes('-alpha', 0.8)
 
-
+Lundi_text = [[{"nom de l'evenement": 'evenement du lundi'}, {'temps de debut': '20260312T133000Z'}, {'temps de fin': '20260312T153000Z'}]]
 
 #necessaire a faire fonctionner GUI avec python
 var1 = tk.IntVar()
@@ -24,34 +24,35 @@ root.attributes("-transparentcolor", "red")
 
 #bg est pour background color
 root.configure(bg='red')
-# Widgets are added here
-lundi = tk.Label(root, text=f" lundi {now}             ", bg='red', fg='white', font = 20)
+
+# Label est du texte ecrit. 
+lundi = tk.Label(text=f" lundi {now}             ", bg='red', fg='white', font = 20)
 lundi.grid(row=0, column=0)
-lundi_event = tk.Label(root, wraplength= 200,  anchor = W, justify= LEFT, text = "placeholder", bg="red", fg='white', font = ("Arial", 10))
+lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = Lundi_text, bg="red", fg='white', font = ("Arial", 10))
 lundi_event.grid(row=1, column=0)
 
 
-mardi = tk.Label(root, text = " mardi            ", bg='red', fg='white', font = 20)
+mardi = tk.Label(text = " mardi            ", bg='red', fg='white', font = 20)
 mardi.grid (row=0, column=1)
 
 
-mercredi = tk.Label(root, text = " mercredi         ", bg='red', fg='white', font = 20)
+mercredi = tk.Label(text = " mercredi         ", bg='red', fg='white', font = 20)
 mercredi.grid (row=0, column=2)
 
 
-jeudi = tk.Label(root, text = " jeudi        ", bg='red', fg='white', font = 20)
+jeudi = tk.Label(text = " jeudi        ", bg='red', fg='white', font = 20)
 jeudi.grid (row=0, column=3)
 
 
-vendredi = tk.Label(root, text = " vendredi          ", bg='red', fg='white', font = 20)
+vendredi = tk.Label(text = " vendredi          ", bg='red', fg='white', font = 20)
 vendredi.grid (row=0, column=4)
 
 
-samedi = tk.Label(root, text = " samedi           ", bg='red', fg='white', font = 20)
+samedi = tk.Label(text = " samedi           ", bg='red', fg='white', font = 20)
 samedi.grid (row=0, column=5)
 
 
-dimanche = tk.Label(root, text = " dimanche         ", bg='red', fg='white', font = 20)
+dimanche = tk.Label(text = " dimanche         ", bg='red', fg='white', font = 20)
 dimanche.grid (row=0, column=6)
 
 
