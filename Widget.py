@@ -4,8 +4,11 @@ from tkinter import ttk
 from tkinter import *
 root = tk.Tk(baseName= 'Coming Week')
 
+
+#obtient seulement la date d'aujourd'hui
 now = datetime.now().date()
 
+#a confirmer ce que cela fait!!!!
 root.attributes('-alpha', 0.8)
 
 
@@ -15,7 +18,7 @@ var1 = tk.IntVar()
 var2 = tk.IntVar()
 
 
-#rend toout ce qui est rouge, transparent
+#rend tout ce qui est rouge, transparent
 root.attributes("-transparentcolor", "red")
 
 
