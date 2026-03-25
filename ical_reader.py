@@ -69,6 +69,13 @@ for evenement in listecal:
     cles_evenement[1][1] = heureformattee
 
 
+    stringheure = cles_evenement[3][1]
+    heure = stringheure[:-2]
+    heureformattee = heure[:2] + "h" + heure[2:]
+    
+    cles_evenement[3][1] = heureformattee
+
+
 
     print(cles_evenement[1])
     #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
