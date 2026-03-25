@@ -26,56 +26,69 @@ lundi = [{
 
 #remove list item 0 a la place d'ecrire une variable nombre avec une fonction "reverse append"
 
+listelundi = []
 
-for evennement in listecal:
-    options = str(evennement).split(",")
-    list(options)
-    lundi["date"] = options[1]
+for evenement in listecal:
+    infos_evenement = str(evenement).split(",")
+    
+    list(infos_evenement)
+    
+    #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, plus le nom
+    infos_evenement.remove(infos_evenement[0]) 
+    for i in range(3): infos_evenement.remove(infos_evenement[-1])
+    for i in range(6): infos_evenement.remove(infos_evenement[2])
+    
+    infos_evenement_cleaned = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
 
-print(lundi)
-
-
-
-
-
-
-
-
-
-
-
-import datetime #pour avoir des fonctions de date
-
-
-
-#dictionnaires de la semaine
-
-lundi = [{
-    "event1" : "dictionnaire_event"
-}]
-
-mardi = []
+    #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
+    cles_evenement = str(infos_evenement_cleaned).split(":")
+    
+    
+    #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
+    nouvel_evenement = [{"nom de l'evenement" : cles_evenement[5]}, {"temps de debut" : cles_evenement[1]}, {"temps de fin" : cles_evenement[3]}]
+    
+    #et on la rajoute a la liste de LUNDI (DATE A CHANGER) ! ! ! ! ! ! !
+    listelundi.append(nouvel_evenement)
 
 
-mercredi = []
-
-jeudi = []
-
-vendredi = []
-
-samedi = []
-
-dimanche = []
 
 
-# liste des dictionnaires
-dictlist = [lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche]
+
+#OU JE SUIS RENDU: jai toutes les données dans des dictionnaires dans des listes, je vais pouvoir commencer a faire une fonction pour calculer les dates
+#et les autres fonctions qu'Arnaud a besoin pour son widget, plus je devrais voir si on save comme ca on a pas a refaire tous les calculs a chaque fois qu'on ouvre
+#le code, ou et si oui, rajoute un output a un txt file ou un json pour avoir les differents evenements sauvegardés en quelque part
+
+
+
+
+    
+
+print(listelundi)
+#print(listelundi[0][0]["tempsdebut"])      #va chercher dans la liste cles evenements, le premier item, et a partir de la on peut prendre la donnée qu'on veut
+
+
+
+
+
+
+
+
+
+
+
+
+
+import datetime #pour avoir des fonctions de date?
+
+
+
+
 
 
 
 #fonction pour mettre des donnés spécifiques de ficher ical dans des variables
 
-def infos_evenement(fichier_ical):
+def info_evenement(fichier_ical):
     
     for text in fichier_ical:
         """sortir ces infos entre BEGIN:VEVENT et END:VEVENT et les mettre dans variable "text"?"""
@@ -83,7 +96,7 @@ def infos_evenement(fichier_ical):
         date = "date trouvée dans le ical"
         heuredebut = "heure début trouvée dans ical"
         heurefin = "heure fin trouvée dans ical"
-        nom_evenement = "nom d'evennement trouvé dans le ical (summary)"
+        nom_evenement = "nom d'evenement trouvé dans le ical (summary)"
     return (date, nom_evenement, heuredebut, heurefin)
 
 
@@ -102,31 +115,4 @@ def infos_evenement(fichier_ical):
 
 
 
-#fonction pour rajouter des événements aux dictionnaire apres avoir lu le fichier ical
-
-#utiliser une for loop pour append des nouveaux events a chaque jour
-
-
-def rajout_evenement_dict(date, nom, heuredebut, heurefin):
-
-    date = 20260318
-    semaine = date + 7
-
-    while date < semaine:
-
-        for event in fichier_ical:
-            journee = "date" #date de la journée qu'on veut dans une variable qu'on modifie a priori, trouver la date dans le ical
-            dictlist[journee]["nom evenement"] = "valeur nom" #va chercher dans la liste le dictionnaire de la journée et rajoute une nouvelle key
-            dictlist[journee]["date"] = date #date en int
-            dictlist[journee]["heure début"] = "valeur heure int"
-            dictlist[journee]["heure fin"] = "valeur heure int (ex: 1315 pour 1h15 de l'apres midi)"
-
-
-
 #dictionaire.clear() ou list.clear() ca delete tout dans le dict ou la liste, on va se servir de ca
-
-
-
-
-# .append a la liste qui a pas besoin de nom exemple list[1,2,3,4 etc] quand tu append a une liste ca lui donne un chiffre
-# les positions dans la liste sont des dicts pour chaque event, la liste = le jour de la semaine
