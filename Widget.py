@@ -2,7 +2,6 @@ from datetime import datetime, timedelta
 
 import tkinter as tk
 from tkinter import ttk
-from tkinter import *
 root = tk.Tk()
 
 #necessaire a faire fonctionner GUI avec python
