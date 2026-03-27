@@ -10,29 +10,38 @@ var1 = tk.IntVar()
 var2 = tk.IntVar()
 
 #obtient seulement la date d'aujourd'hui
-now = datetime.now().date()
+jour1 = datetime.now().date()
 
 #cree un nombre a partir de la date pour comparer
 now_compare = datetime.now().strftime("%Y%m%d")
-print(now_compare)
 
 #donne la date des jours a venir avec des additions de journees
-jour2 = now + timedelta(days=1)
-jour3 = now + timedelta(days=2)
-jour4 = now + timedelta(days=3)
-jour5 = now + timedelta(days=4)
-jour6 = now + timedelta(days=5)
-jour7 = now + timedelta(days=6)
+jour2 = jour1 + timedelta(days=1)
+jour3 = jour2 + timedelta(days=2)
+jour4 = jour3 + timedelta(days=3)
+jour5 = jour4 + timedelta(days=4)
+jour6 = jour5 + timedelta(days=5)
+jour7 = jour6 + timedelta(days=6)
 
-ical = [{'nom': 'TEST2', 'debut': ['20260325', '160000Z'], 'fin': ['20260314', '170000Z']}, {'nom': 'TESTTESTTEST', 'debut': ['20260325', '133000Z'], 'fin': ['20260312', '153000Z']}]
+ical = [{'nom': "Nom de l'evenement", 'debut': ['20260326', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260326', '133000Z'], 'fin': ['20260312', '153000Z']}]
 
-Lundi = [[],[],[],[],[],[],[]]
+day1 = []
+day2 = []
+day3 = []
+day4 = []
+day5 = []
+day6 = []
+day7 = []
 
 for event in range(len(ical)):
     if ical[event]['debut'][0] == now_compare:
-        Lundi[event].append(ical[event])
-        print(Lundi[event])
+        day1.append(ical[event])
 
+def journee(day):
+    horaire = ""
+    for event in range(len(day)):
+       horaire += f"{day[event]['nom']}\n start:{day[event]['debut'][1]}\n end:{day[event]['fin'][1]}\n\n "
+    return horaire
 
 
 
@@ -44,9 +53,9 @@ root.attributes("-transparentcolor", "red")
 root.configure(bg='red')
 
 # Label est du texte ecrit. 
-lundi = tk.Label(text=f" {now}             ", bg='red', fg='white', font = 20)
+lundi = tk.Label(text=f" {jour1}             ", bg='red', fg='white', font = 20)
 lundi.grid(row=0, column=0)
-lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f"{Lundi[0]}\n\n {Lundi[1]} \n {Lundi[2]} \n {Lundi[3]} \n {Lundi[4]}"  , bg="red", fg='white', font = ("Arial", 10))
+lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f" {journee(day1)}", bg="red", fg='white', font = ("Arial", 10))
 lundi_event.grid(row=1, column=0)
 
 
