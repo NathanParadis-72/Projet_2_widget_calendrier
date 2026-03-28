@@ -23,7 +23,7 @@ jour5 = jour4 + timedelta(days=4)
 jour6 = jour5 + timedelta(days=5)
 jour7 = jour6 + timedelta(days=6)
 
-ical = [{'nom': "Nom de l'evenement", 'debut': ['20260326', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260326', '133000Z'], 'fin': ['20260312', '153000Z']}]
+ical = [{'nom': "Nom de l'evenement", 'debut': ['20260327', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260327', '133000Z'], 'fin': ['20260312', '153000Z']}]
 
 day1 = []
 day2 = []
