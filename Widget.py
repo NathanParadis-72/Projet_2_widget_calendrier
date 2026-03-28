@@ -53,34 +53,34 @@ root.attributes("-transparentcolor", "red")
 root.configure(bg='red')
 
 # Label est du texte ecrit. 
-lundi = tk.Label(text=f" {jour1}             ", bg='red', fg='white', font = 20)
-lundi.grid(row=0, column=0)
-lundi_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f" {journee(day1)}", bg="red", fg='white', font = ("Arial", 10))
-lundi_event.grid(row=1, column=0)
+day1cal = tk.Label(text=f" {jour1}             ", bg='red', fg='white', font = 20)
+day1cal.grid(row=0, column=0)
+day1_event = tk.Label(wraplength= 200,  anchor = W, justify= LEFT, text = f" {journee(day1)}", bg="red", fg='white', font = ("Arial", 10))
+day1_event.grid(row=1, column=0)
 
 
-mardi = tk.Label(text = f" {jour2}             ", bg='red', fg='white', font = 20)
-mardi.grid (row=0, column=1)
+day2cal = tk.Label(text = f" {jour2}             ", bg='red', fg='white', font = 20)
+day2cal.grid (row=0, column=1)
 
 
-mercredi = tk.Label(text = f" {jour3}         ", bg='red', fg='white', font = 20)
-mercredi.grid (row=0, column=2)
+day3cal = tk.Label(text = f" {jour3}         ", bg='red', fg='white', font = 20)
+day3cal.grid (row=0, column=2)
 
 
-jeudi = tk.Label(text = f" {jour4}        ", bg='red', fg='white', font = 20)
-jeudi.grid (row=0, column=3)
+day4cal = tk.Label(text = f" {jour4}        ", bg='red', fg='white', font = 20)
+day4cal.grid (row=0, column=3)
 
 
-vendredi = tk.Label(text = f" {jour5}          ", bg='red', fg='white', font = 20)
-vendredi.grid (row=0, column=4)
+day5cal = tk.Label(text = f" {jour5}          ", bg='red', fg='white', font = 20)
+day5cal.grid (row=0, column=4)
 
 
-samedi = tk.Label(text = f" {jour6}           ", bg='red', fg='white', font = 20)
-samedi.grid (row=0, column=5)
+day6cal = tk.Label(text = f" {jour6}           ", bg='red', fg='white', font = 20)
+day6cal.grid (row=0, column=5)
 
 
-dimanche = tk.Label(text = f" {jour7}         ", bg='red', fg='white', font = 20)
-dimanche.grid (row=0, column=6)
+day7cal = tk.Label(text = f" {jour7}         ", bg='red', fg='white', font = 20)
+day7cal.grid (row=0, column=6)
 
 
 sepmardi = ttk.Separator(orient='vertical')
