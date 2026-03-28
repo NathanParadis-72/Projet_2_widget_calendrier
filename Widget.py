@@ -20,17 +20,13 @@ def affichage(evenements,date,colonne):
     date_du_jour = tk.Label(text=f"       {date}      ", bg = 'red', fg ='white', font = 20)
     date_du_jour.grid(row = 0, column = colonne)
     now_compare = date.strftime("%Y%m%d") 
-
     for event in range(len(calendrier)):
         if calendrier[event]['debut'][0] == now_compare:
             evenements.append(calendrier[event])
-
     for event in range(len(evenements)):
        horaire += f"{evenements[event]['nom']}\n start:{evenements[event]['debut'][1]}\n end:{evenements[event]['fin'][1]}\n\n "
-
     evenement_du_jour = tk.Label(wraplength= 400,  anchor = tk.W, justify= tk.LEFT, text = f" {horaire}", bg="red", fg='white', font = ("Arial", 10))
     evenement_du_jour.grid(row = 1, column = colonne)
-
     separateur = ttk.Separator(orient='vertical')
     separateur.grid(row=0, column=colonne, columnspan=1,  rowspan=12, sticky="wns")
 
