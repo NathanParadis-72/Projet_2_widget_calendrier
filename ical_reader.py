@@ -7,6 +7,7 @@ programme pour extraire de l'information pertinente d'un fichier .ical afin de p
 
 
 
+import sys
 
 
 
@@ -58,26 +59,59 @@ def formateur_heure(liste_evenement):
 #fonction pour sauvegarder le path du ical entre les utilisations du programme
 def sauvegarde_path():
     """
-    Fonction pour voir si une sauvegarde du path du fichier ical/ics existe, et si non, elle en crée une pour les utilisations futures du programme
-    Entrées:
-    Sorties: 
+    Fonction pour voir si une sauvegarde du path du fichier ical/ics existe, et si non, elle en crée un fichier de sauvegarde contenant 
+    le path du fichier ical/.ics pour les utilisations futures du programme.
+    Entrées: Aucune, demande un input de l'utilisateur qu'il placera ensuite dans le fichier de sauvegarde.
+    Sorties: Variable contenant le path du fichier ical/ics, et un fichier .txt contenant ce même path.
     """
-    try: 
-        sauvegarde_calendrier = open('sauvegarde_calendrier', "x+")
+    validation = False
+
+    while validation == False:
+        try: 
+            sauvegarde_calendrier = open('sauvegarde_calendrier', "x+")
+            
         
-        #input du path directement ou trouver une facon de trouver le fichier a partir du nom?
-        pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le fichier et en cliquant "
-                               "sur 'copy path') \n\npath: ")
+            try:
+                #input du path directement ou trouver une facon de trouver le fichier a partir du nom?
+                pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
+                " fichier et en cliquant sur 'copy path') \n\npath: ")
 
-        sauvegarde_calendrier.write(pathfichiercal)
+                testpath = open(pathfichiercal, "r")
+                testpath.close()
+                
+                sauvegarde_calendrier.write(pathfichiercal)
+                sauvegarde_calendrier.close()
+                validation = True
 
-        sauvegarde_calendrier.close()
+            except FileNotFoundError:
+                print("path invalide")
 
-    except FileExistsError:
-        sauvegarde_calendrier = open('sauvegarde_calendrier', "r")
-        pathfichiercal = sauvegarde_calendrier.read()
-    
+        except FileExistsError:
+            sauvegarde_calendrier = open('sauvegarde_calendrier', "r")
+            pathfichiercal = sauvegarde_calendrier.read()
+            sauvegarde_calendrier.close()
+
+            try:
+                testpath = open(pathfichiercal, "r")
+                testpath.close()
+                validation = True
+
+            except FileNotFoundError:
+                print("\npath invalide\n")
+                pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
+                " fichier et en cliquant sur 'copy path') \n\npath: ")
+        
+    #fonction test de path ici?
+
     return pathfichiercal
+
+
+
+
+#mettre les deuxieme try except dans une fonction et les standardiser, mettre le input a la meme place, pareil pour le close(), etc etc
+
+
+
 
 
 
@@ -87,7 +121,11 @@ def sauvegarde_path():
 
 pathfichiercal = sauvegarde_path()
 
-#pathfichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
+
+#(pour override le save si jamais tu veux rentrer ton propre path)
+# pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
+
+
 
 calendrier = open(pathfichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' (litteral) fait que le open peut juste lire le fichier
 lirecal = calendrier.read()
