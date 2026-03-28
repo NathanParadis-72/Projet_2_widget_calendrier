@@ -22,7 +22,7 @@ print(temps.strftime("%A, %p"))
 
 
 
-
+"""
 liste = [{"time" : ['20260312', '133000']}]
 
 stringheure = liste[0]["time"][1]
@@ -33,3 +33,17 @@ print(newheure2)
 my_string = "hello"
 new_string = my_string[:-2] + "l" + my_string[-2:]
 print(new_string)
+"""
+
+
+
+
+
+
+from pathlib import Path
+
+
+directory = Path(r'C:/Users/parad/Desktop')
+liste_test = list(directory.glob('*.ics'))
+
+print(liste_test)
