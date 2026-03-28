@@ -55,6 +55,29 @@ def formateur_heure(liste_evenement):
 
 
 
+#fonction pour sauvegarder le path du ical entre les utilisations du programme
+def sauvegarde_path():
+    """
+    Fonction pour voir si une sauvegarde du path du fichier ical/ics existe, et si non, elle en crée une pour les utilisations futures du programme
+    Entrées:
+    Sorties: 
+    """
+    try: 
+        sauvegarde_calendrier = open('sauvegarde_calendrier', "x+")
+        
+        #input du path directement ou trouver une facon de trouver le fichier a partir du nom?
+        pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le fichier et en cliquant "
+                               "sur 'copy path') \n\npath: ")
+
+        sauvegarde_calendrier.write(pathfichiercal)
+
+        sauvegarde_calendrier.close()
+
+    except FileExistsError:
+        sauvegarde_calendrier = open('sauvegarde_calendrier', "r")
+        pathfichiercal = sauvegarde_calendrier.read()
+    
+    return pathfichiercal
 
 
 
@@ -62,12 +85,13 @@ def formateur_heure(liste_evenement):
 
 
 
+pathfichiercal = sauvegarde_path()
 
+#pathfichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
 
-fichiercal = r"C:\users\parad\Desktop\test2.ics" #path du fichier (pour mon ordi, va falloir le modifier pour le final)
-
-calendrier = open(fichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' fait que le open peut juste lire le fichier
+calendrier = open(pathfichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' (litteral) fait que le open peut juste lire le fichier
 lirecal = calendrier.read()
+calendrier.close() #pas oublier de close le fichier apres l'avoir lu
 calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec des virgules pour pouvoir separer les composantes plus tard
 calproprefinal = calpropre.replace(",END:VCALENDAR", "")
 listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
