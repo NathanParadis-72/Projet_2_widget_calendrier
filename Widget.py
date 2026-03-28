@@ -13,7 +13,7 @@ var2 = tk.IntVar()
 jour1 = datetime.now().date()
 
 #cree un nombre a partir de la date pour comparer
-now_compare = datetime.now().strftime("%Y%m%d")
+now_compare = jour1.strftime("%Y%m%d")
 
 #donne la date des jours a venir avec des additions de journees
 jour2 = jour1 + timedelta(days=1)
@@ -23,8 +23,11 @@ jour5 = jour4 + timedelta(days=4)
 jour6 = jour5 + timedelta(days=5)
 jour7 = jour6 + timedelta(days=6)
 
-ical = [{'nom': "Nom de l'evenement", 'debut': ['20260327', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260327', '133000Z'], 'fin': ['20260312', '153000Z']}]
 
+#la variable contenant le calendrier.
+ical = [{'nom': "Nom de l'evenement", 'debut': ['20260328', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260327', '133000Z'], 'fin': ['20260312', '153000Z']}]
+
+#les listes vide prete a etre remplie pour les 7 jours du calendrier
 day1 = []
 day2 = []
 day3 = []
@@ -33,9 +36,23 @@ day5 = []
 day6 = []
 day7 = []
 
+
+def Finalcalendar(day):
+    now_compare = day.strftime("%Y%m%d")
+    horaire = ""
+    for event in range(len(ical)):
+    if ical[event]['debut'][0] == now_compare:
+        day1.append(ical[event])
+    
+    for event in range(len(day)):
+       horaire += f"{day[event]['nom']}\n start:{day[event]['debut'][1]}\n end:{day[event]['fin'][1]}\n\n "
+    return horaire
+
+
 for event in range(len(ical)):
     if ical[event]['debut'][0] == now_compare:
         day1.append(ical[event])
+
 
 def journee(day):
     horaire = ""
