@@ -28,6 +28,7 @@ def trieur_liste(liste_evenement):
         if i == 0 or i == 2 or i == 4:
             continue
         else:
+            #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
             liste_evenement[i] = liste_evenement[i].replace("T", ":")
             liste_evenement[i] = liste_evenement[i].replace("Z", "")
             liste_evenement[i] = liste_evenement[i].split(":")
@@ -44,7 +45,8 @@ def formateur_heure(liste_evenement):
     envoyer au code du widget calendrier sans avoir à les traduire plus tard.
     """
     for i in range(4):
-        if i == 0 or i == 2 or i == 4:
+        #tu peux if i % 2 ==0:
+        if i == 0 or i == 2 or i == 4: 
             continue
         else:
             stringheure = liste_evenement[i][1]
@@ -114,7 +116,7 @@ def sauvegarde_path():
 
 
 
-
+#!!! au lieu de toute les sauvegardes et paths, j ai eu une idee!
 
 
 
