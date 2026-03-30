@@ -5,8 +5,6 @@ programme pour extraire de l'information pertinente d'un fichier .ical afin de p
 
 
 
-
-
 import sys
 
 
@@ -25,7 +23,7 @@ def trieur_liste(liste_evenement):
     
     """
     for i in range(4):
-        if i == 0 or i == 2 or i == 4:
+        if i % 2 == 0:
             continue
         else:
             #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
@@ -45,8 +43,7 @@ def formateur_heure(liste_evenement):
     envoyer au code du widget calendrier sans avoir à les traduire plus tard.
     """
     for i in range(4):
-        #tu peux if i % 2 ==0:
-        if i == 0 or i == 2 or i == 4: 
+        if i % 2 == 0: 
             continue
         else:
             stringheure = liste_evenement[i][1]
@@ -103,7 +100,6 @@ def sauvegarde_path():
                 pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
                 " fichier et en cliquant sur 'copy path') \n\npath: ")
         
-    #fonction test de path ici?
 
     return pathfichiercal
 

@@ -47,3 +47,4 @@ directory = Path(r'C:/Users/parad/Desktop')
 liste_test = list(directory.glob('*.ics'))
 
 print(liste_test)
+
