@@ -69,7 +69,6 @@ def sauvegarde_path():
         try: 
             sauvegarde_calendrier = open('sauvegarde_calendrier', "x+")
             
-        
             try:
                 #input du path directement ou trouver une facon de trouver le fichier a partir du nom?
                 pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
