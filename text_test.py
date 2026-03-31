@@ -1,9 +1,9 @@
 import datetime as dt
 
 temps = dt.datetime.now()
-print(temps) #output example: 2026-03-25 08:51:17.747746
+#print(temps) #output example: 2026-03-25 08:51:17.747746
 
-print(temps.strftime("%A, %p")) 
+#print(temps.strftime("%A, %p")) 
 # strftime, string format time, parametres: (tu peux en stack plusieurs: strftime("%1, %2, 3%") )
 # %a semaine abréviée: sun mon tue
 # %A semaine: sunday monday tuesday
@@ -46,33 +46,28 @@ from pathlib import Path
 directory = Path(r'C:/Users/parad/Desktop')
 liste_test = list(directory.glob('*.ics'))
 
-print(liste_test)
+#print(liste_test)
 
 
 
 
+import os
+
+import urllib.request
 
 
 
 
-
-
-import webbrowser
 
 url = "https://calendar.google.com/calendar/ical/85ab5d95814f9e369157bc1447ed8e2519614f72cdbc364c87e6548fdde37400%40group.calendar.google.com/private-648733675222b475c39e98fbfc425360/basic.ics"
-
-# Open the URL in the default web browser
-webbrowser.open(url)
-
-
-
-url = "https://example.com"
 # Get the directory where the script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
+print(script_dir)
 # Extract the filename from the URL
 filename = url.split("/")[-1]
+print(filename)
 # Create the full path
 save_path = os.path.join(script_dir, filename)
-
-urllib.request.urlretrieve(url, save_path)
+print(save_path)
+#urllib.request.urlretrieve(url, save_path)
 print(f"File saved to: {save_path}")
