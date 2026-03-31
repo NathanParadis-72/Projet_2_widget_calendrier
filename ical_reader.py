@@ -27,9 +27,7 @@ def trieur_liste(liste_evenement):
             continue
         else:
             #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
-            liste_evenement[i] = liste_evenement[i].replace("T", ":")
-            liste_evenement[i] = liste_evenement[i].replace("Z", "")
-            liste_evenement[i] = liste_evenement[i].split(":")
+            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("z", "").split(":")
     
 
 
