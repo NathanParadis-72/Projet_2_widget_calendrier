@@ -53,6 +53,20 @@ def formateur_heure(liste_evenement):
 
 
 
+
+
+
+
+
+
+
+
+
+
+#fonction a reparer ici ! ! ! ! ! ! 
+#fonction pour sauvegarder le url 
+
+
 #fonction pour sauvegarder le path du ical entre les utilisations du programme
 def sauvegarde_path():
     """
@@ -96,6 +110,7 @@ def sauvegarde_path():
                 print("\npath invalide\n")
                 pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
                 " fichier et en cliquant sur 'copy path') \n\npath: ")
+            
         
 
     return pathfichiercal
@@ -103,18 +118,25 @@ def sauvegarde_path():
 
 
 
-#mettre les deuxieme try except dans une fonction et les standardiser, mettre le input a la meme place, pareil pour le close(), etc etc
 
 
 
 
 
-#!!! au lieu de toute les sauvegardes et paths, j ai eu une idee!
 
 
 
 
-#pathfichiercal = sauvegarde_path()
+
+
+
+
+
+
+
+
+
+# pathfichiercal = sauvegarde_path() #fonction brisée a réparer
 
 
 #(pour override le save si jamais tu veux rentrer ton propre path)
