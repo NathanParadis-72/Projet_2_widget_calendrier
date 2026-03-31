@@ -63,3 +63,16 @@ url = "https://calendar.google.com/calendar/ical/85ab5d95814f9e369157bc1447ed8e2
 
 # Open the URL in the default web browser
 webbrowser.open(url)
+
+
+
+url = "https://example.com"
+# Get the directory where the script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# Extract the filename from the URL
+filename = url.split("/")[-1]
+# Create the full path
+save_path = os.path.join(script_dir, filename)
+
+urllib.request.urlretrieve(url, save_path)
+print(f"File saved to: {save_path}")
