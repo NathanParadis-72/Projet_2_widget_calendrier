@@ -27,7 +27,7 @@ def trieur_liste(liste_evenement):
             continue
         else:
             #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
-            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("z", "").split(":")
+            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("Z", "").split(":")
     
 
 
@@ -114,11 +114,11 @@ def sauvegarde_path():
 
 
 
-pathfichiercal = sauvegarde_path()
+#pathfichiercal = sauvegarde_path()
 
 
 #(pour override le save si jamais tu veux rentrer ton propre path)
-# pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
+pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
 
 
 
