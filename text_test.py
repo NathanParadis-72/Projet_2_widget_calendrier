@@ -69,5 +69,5 @@ print(filename)
 # Create the full path
 save_path = os.path.join(script_dir, filename)
 print(save_path)
-#urllib.request.urlretrieve(url, save_path)
+urllib.request.urlretrieve(url, save_path)
 print(f"File saved to: {save_path}")
