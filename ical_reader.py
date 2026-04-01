@@ -1,6 +1,6 @@
 """
-programme pour extraire de l'information pertinente d'un fichier .ical afin de pouvoir l'utiliser dans le widget calendrier
-
+Programme pour extraire de l'information pertinente d'un fichier .ical afin de pouvoir l'utiliser dans le widget calendrier
+Par: Nathan Paradis et Arnaud Baril
 """
 
 
@@ -11,16 +11,18 @@ import urllib.request
 
 
 
+### Définition de fonctions ###
 
-#fonction pour mieux trier les listes et les rendre plus propres
+
 def trieur_liste(liste_evenement):
     """
-    Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de deux items
-    a partir des items 1 et 3 de la liste a l'entrée.
-    Entrées: liste d'un evenement ical avec la date et heure de début a la position 1, et la date et heure de fin a la position 3
+    Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de
+    deux items a partir des items 1 et 3 de la liste a l'entrée.
+    Entrées: liste d'un evenement ical avec la date et heure de début a la position 1, et la date et heure de fin 
+    a la position 3
     Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
-    a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la position 3 qui 
-    contient la date et l'heure de fin de l'evenement.
+    a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la
+    position 3 qui contient la date et l'heure de fin de l'evenement.
     
     """
     for i in range(4):
@@ -33,13 +35,13 @@ def trieur_liste(liste_evenement):
 
 
 
-#fonction pour formater les heures en format plus lisible
 def formateur_heure(liste_evenement):
     """
     Fonction pour formater des heures de format "HHMMSS" en heures de format "HHhMM"
-    Entrées: Liste d'evenement triée par la fonction "trieur liste", afin que les heures soient séparées des dates
-    Sorties: Pas de return, modifie seulement la liste afin d'avoir des heures de format HHhMM (13h30 par exemple) pour pouvoir les
-    envoyer au code du widget calendrier sans avoir à les traduire plus tard.
+    Entrées: Liste d'evenement triée par la fonction "trieur liste", afin que les heures soient séparées 
+    des dates
+    Sorties: Pas de return, modifie seulement la liste afin d'avoir des heures de format HHhMM (13h30 par exemple)
+    pour pouvoir les envoyer au code du widget calendrier sans avoir à les traduire plus tard.
     """
     for i in range(4):
         if i % 2 == 0: 
@@ -53,18 +55,48 @@ def formateur_heure(liste_evenement):
 
 
 
+def mise_a_jour_cal(url_cal):
+    """
+    Fonction pour mettre a jour le fichier .ical/.ics dans le repertoire du code
+    Entrées: Le url du fichier .ical/.ics
+    Sorties: Le fichier de sauvegarde de calendrier mis a jour
+    """
+    #ensuite il va trouver le path du repertoire courant du code
+    repertoire_code = os.path.dirname(os.path.abspath(__file__))
+
+    #nommer le fichier de sauvegarde du calendrier
+    filename = "sauvegarde_calendrier.ics"
+
+    #crée le path pour le fichier de sauvegarde
+    path_sauvegarde_cal = os.path.join(repertoire_code, filename)
+    
+    #entre les données du calendrier dans un nouveau fichier dans le repertoire du code
+    urllib.request.urlretrieve(url_cal, path_sauvegarde_cal)
 
 
 
+def extracteur_donnees_cal():
+    """
+    Fonction pour creer une liste contenant les infos du fichier .ical/.ics du calendrier
+    Entrées: Aucune
+    Sorties: Liste contenant les événements du calendrier
+    """
+    
+    calendrier_ics = open('sauvegarde_calendrier.ics', "r")
+    donnees_cal = calendrier_ics.read() #sort les données du fichier .ics
+    calendrier_ics.close()
+    
+    #on enleve les caracteres dont on a pas besoin et on prépare la création de liste
+    calpropre = donnees_cal.replace("\n", ",").replace(",END:VCALENDAR", "")
+    
+    #crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
+    listecal = calpropre.split("BEGIN:VEVENT") 
+    
+    #on enleve l'item 0 puisqu'il ne contient aucun info d'événement
+    listecal.remove(listecal[0])
 
 
-
-
-
-
-
-
-
+    return listecal
 
 
 
@@ -75,109 +107,104 @@ def sauvegarde_calendrier():
     dans une varible. Si le fichier n'existe pas, la fonction demande a l'utilisateur d'input l'url de son calendrier
     afin de créer une sauvegarde.
     Entrées: Aucune, demande l'input de l'utilisateur au besoin.
-    Sorties: Variable contenant le contenu du fichier ical/ics, et un fichier .txt contenant le url du calendrier.
+    Sorties: Un fichier .txt contenant le url du calendrier, et une variable contenant le contenu du fichier ical/ics
     """
-
-    try: 
-        #essaie d'ouvrir le fichier de sauvegarde
-        sauvegarde_url = open('sauvegarde_calendrier', "r")
-        url_cal = sauvegarde_url.read()
-        sauvegarde_url.close()
-    
-    except FileNotFoundError:
-        #si il ne trouve pas le fichier, il le crée, premierement il demande un input
-        url_cal = input("Entrez le URL de votre calendrier (il se trouve dans 'settings and sharing' > 'integrate calendar'"
-        " > 'secret adress in ical format')\n\nURL: ")
-
-        #va trouver le path du repertoire courant du code
-        repertoire_code = os.path.dirname(os.path.abspath(__file__))
-
-        #prend seulement le dernier item du url, qui deviendra le nom du fichier de sauvegarde
-        filename = "sauvegarde_url_calendrier"
-    
-        path_sauvegarde_url = os.path.join(repertoire_code, filename)
-        urllib.request.urlretrieve(url_cal, path_sauvegarde_url)
+    try:
         
-        
-        sauvegarde_url = open('sauvegarde_calendrier', "r")
-        url_cal = sauvegarde_url.read()
-        sauvegarde_url.close()
-
-
-    return url_cal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#fonction a reparer ici ! ! ! ! ! ! 
-#fonction pour sauvegarder le url 
-
-
-#fonction pour sauvegarder le path du ical entre les utilisations du programme
-def sauvegarde_path():
-    """
-    Fonction pour voir si une sauvegarde du path du fichier ical/ics existe, et si non, elle en crée un fichier de sauvegarde contenant 
-    le path du fichier ical/.ics pour les utilisations futures du programme.
-    Entrées: Aucune, demande un input de l'utilisateur qu'il placera ensuite dans le fichier de sauvegarde.
-    Sorties: Variable contenant le path du fichier ical/ics, et un fichier .txt contenant ce même path.
-    """
-    validation = False
-
-    while validation == False:
         try: 
-            sauvegarde_calendrier = open('sauvegarde_calendrier', "x+")
+            sauvegarde_url = open('sauvegarde_url.txt', 'r')
+            url_cal = sauvegarde_url.read()
+            sauvegarde_url.close()
+
+            mise_a_jour_cal(url_cal)
+
+            listecal = extracteur_donnees_cal()
+
+        except FileNotFoundError:
+            #si il ne trouve pas le fichier, il le crée. Premierement il demande un input
+            url_cal = input("Entrez le URL de votre calendrier (il se trouve dans 'settings and sharing' > 'integrate " \
+            "calendar' > 'secret adress in ical format')\n\nURL: ")
             
-            try:
-                #input du path directement ou trouver une facon de trouver le fichier a partir du nom?
-                pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
-                " fichier et en cliquant sur 'copy path') \n\npath: ")
+            #sauvegarde le url dans un fichier text
+            sauvegarde_url = open('sauvegarde_url.txt', 'w+')
+            sauvegarde_url.write(url_cal)
+            sauvegarde_url.close()
 
-                testpath = open(pathfichiercal, "r")
-                testpath.close()
-                
-                sauvegarde_calendrier.write(pathfichiercal)
-                sauvegarde_calendrier.close()
-                validation = True
-
-            except FileNotFoundError:
-                print("path invalide")
-
-        except FileExistsError:
-            sauvegarde_calendrier = open('sauvegarde_calendrier', "r")
-            pathfichiercal = sauvegarde_calendrier.read()
-            sauvegarde_calendrier.close()
-
-            try:
-                testpath = open(pathfichiercal, "r")
-                testpath.close()
-                validation = True
-
-            except FileNotFoundError:
-                print("\npath invalide\n")
-                pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
-                " fichier et en cliquant sur 'copy path') \n\npath: ")
+            mise_a_jour_cal(url_cal)
             
+            listecal = extracteur_donnees_cal()
+
+    except urllib.error.URLError:
+        print("Pas de connexion internet, le calendrier se mettra a jour la prochaine fois que vous y aurez acces")
+        sauvegarde = open('sauvegarde_calendrier.ics', 'r')
+        listecal = sauvegarde.read()
+        sauvegarde.close()
+
+
+    return listecal
+
+
+
+
+
+
+
+
+
+
+##### Fonction contenant tout le code necessaire pour widget.py #####
+
+def fonction_finale():
+    """
+    Fonction pour créer une liste mere contenant des dictionnaires d'événements formattées de maniere a pouvoir
+    etre lue par le code widget.py pour afficher des informations sur des événements dans un calendrier
+    Entrées: Aucune
+    Sorties: Liste complétée et formattée contenant des dictionnaires qui contiennent les information des 
+    événements dans le calendrier
+    """
+    #création de la liste mere du calendrier, sert a plus qu'une semaine, changer le nom au besoin! ! !
+    listemere = []
+
+    #création de la liste d'événements qu'on va utiliser pour le reste du code
+    listecal = sauvegarde_calendrier()
+    print(listecal)
+
+    for evenement in listecal:
+        #creer une liste a partir des evennements dans la liste du calendrier
+        infos_evenement = str(evenement).split(",")
+        
+        
+        #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, plus le nom
+        infos_evenement.remove(infos_evenement[0]) 
+        for i in range(3): infos_evenement.remove(infos_evenement[-1])
+        for i in range(6): infos_evenement.remove(infos_evenement[2])
+        
+        infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
+
+        #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
+        liste_evenement = str(infos_evenement_propre).split(":")
+        
         
 
-    return pathfichiercal
+        #fonction pour faire des listes plus propres et mieux triées
+        trieur_liste(liste_evenement)
 
 
+        #fonction pour formater les heures pour les rendre plus facile a lire sur le calendrier
+        formateur_heure(liste_evenement)
+        
 
 
+        #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
+        nouvel_evenement = {"nom" : liste_evenement[5], "debut" : liste_evenement[1], "fin" : liste_evenement[3]}
+        
+        #et on rajoute la liste de l'événement dans le prochain item de la liste calendrier mere
+        listemere.append(nouvel_evenement)
 
 
+    return listemere
 
+        
 
 
 
@@ -190,116 +217,6 @@ def sauvegarde_path():
 
 
 
+listemere = fonction_finale()
 
-
-
-# pathfichiercal = sauvegarde_path() #fonction brisée a réparer
-
-
-#(pour override le save si jamais tu veux rentrer ton propre path)
-pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
-
-
-
-calendrier = open(pathfichiercal, "r") #open('nomdufichier', 'parametre') le parametre 'r' (litteral) fait que le open peut juste lire le fichier
-lirecal = calendrier.read()
-calendrier.close() #pas oublier de close le fichier apres l'avoir lu
-calpropre = lirecal.replace("\n", ",") #enleve les newlines et les remplace avec des virgules pour pouvoir separer les composantes plus tard
-calproprefinal = calpropre.replace(",END:VCALENDAR", "")
-listecal = calproprefinal.split("BEGIN:VEVENT") # crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
-
-listecal.remove(listecal[0])
-
-
-
-
-
-#création de la liste mere du calendrier, sert a plus qu'une semaine, changer le nom au besoin! ! !
-listesemaine = []
-
-
-
-
-
-for evenement in listecal:
-    #creer une liste a partir des evennements dans la liste du calendrier
-    infos_evenement = str(evenement).split(",")
-    
-    
-    #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, plus le nom
-    infos_evenement.remove(infos_evenement[0]) 
-    for i in range(3): infos_evenement.remove(infos_evenement[-1])
-    for i in range(6): infos_evenement.remove(infos_evenement[2])
-    
-    infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
-
-    #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
-    liste_evenement = str(infos_evenement_propre).split(":")
-    
-    
-
-
-    #fonction pour faire des listes plus propres et mieux triées
-    trieur_liste(liste_evenement)
-
-    
-
-    #fonction pour formater les heures pour les rendre plus facile a lire sur le calendrier
-    formateur_heure(liste_evenement)
-    
-
-
-
-    #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
-    nouvel_evenement = {"nom" : liste_evenement[5], "debut" : liste_evenement[1], "fin" : liste_evenement[3]}
-    
-    #et on rajoute la liste de l'événement dans le prochain item de la liste calendrier mere
-    listesemaine.append(nouvel_evenement)
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print(listesemaine)
-#print(listesemaine[0]["debut"]) #premier item de la liste d'evenements, clé pour output la liste de date+heure de début, pour seulement avoir l'heure, rajouter [1], pour la date, rajouter [0]
-
-
-
-
-
-
-
-
-
-
-
-
-#OU JE SUIS RENDU: je devrais voir si on save comme ca on a pas a refaire tous les calculs a chaque fois qu'on ouvre
-#le code, ou et si oui, rajoute un output a un txt file ou un json pour avoir les differents evenements sauvegardés en quelque part
-
-
-
-"""
-[{'nom': 'TEST2', 'debut': ['20260314', '16h00'], 'fin': ['20260314', '17h00']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '13h30'], 'fin': ['20260312', '15h30']}]
-= listesemaine
-"""
-
-
-
-
-
-
-
-#dictionaire.clear() ou list.clear() ca delete tout dans le dict ou la liste, on va se servir de ca
+print(listemere)
