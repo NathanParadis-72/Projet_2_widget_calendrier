@@ -147,11 +147,6 @@ def sauvegarde_calendrier():
 
 
 
-
-
-
-
-
 ##### Fonction contenant tout le code necessaire pour widget.py #####
 
 def fonction_finale():
@@ -216,7 +211,7 @@ def fonction_finale():
 
 
 
-
+#CODE QUI MARCHE HELL YEAH
 listemere = fonction_finale()
 
 print(listemere)
