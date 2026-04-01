@@ -58,7 +58,6 @@ import urllib.request
 
 
 
-
 url = "https://calendar.google.com/calendar/ical/85ab5d95814f9e369157bc1447ed8e2519614f72cdbc364c87e6548fdde37400%40group.calendar.google.com/private-648733675222b475c39e98fbfc425360/basic.ics"
 # Get the directory where the script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))

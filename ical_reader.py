@@ -26,10 +26,8 @@ def trieur_liste(liste_evenement):
         if i % 2 == 0:
             continue
         else:
-            #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
-            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("z", "").split(":")
+            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("Z", "").split(":")
 
-    
 
 
 
@@ -52,6 +50,20 @@ def formateur_heure(liste_evenement):
             liste_evenement[i][1] = heureformatee
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+#fonction a reparer ici ! ! ! ! ! ! 
+#fonction pour sauvegarder le url 
 
 
 #fonction pour sauvegarder le path du ical entre les utilisations du programme
@@ -97,6 +109,7 @@ def sauvegarde_path():
                 print("\npath invalide\n")
                 pathfichiercal = input("Quel est le path de votre fichier icalendar? (vous pouvez le trouver en faisant 'right-click' sur le" \
                 " fichier et en cliquant sur 'copy path') \n\npath: ")
+            
         
 
     return pathfichiercal
@@ -104,22 +117,29 @@ def sauvegarde_path():
 
 
 
-#mettre les deuxieme try except dans une fonction et les standardiser, mettre le input a la meme place, pareil pour le close(), etc etc
 
 
 
 
 
-#!!! au lieu de toute les sauvegardes et paths, j ai eu une idee!
 
 
 
 
-pathfichiercal = sauvegarde_path()
+
+
+
+
+
+
+
+
+
+# pathfichiercal = sauvegarde_path() #fonction brisée a réparer
 
 
 #(pour override le save si jamais tu veux rentrer ton propre path)
-# pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
+pathfichiercal = r"C:\users\parad\Desktop\test2.ics" 
 
 
 
