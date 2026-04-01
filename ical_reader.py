@@ -28,9 +28,14 @@ def trieur_liste(liste_evenement):
         if i == 0 or i == 2 or i == 4:
             continue
         else:
+<<<<<<< Updated upstream
             liste_evenement[i] = liste_evenement[i].replace("T", ":")
             liste_evenement[i] = liste_evenement[i].replace("Z", "")
             liste_evenement[i] = liste_evenement[i].split(":")
+=======
+            liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("Z", "").split(":")
+
+>>>>>>> Stashed changes
     
 
 
