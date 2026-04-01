@@ -11,14 +11,7 @@ root.attributes("-transparentcolor", "red")
 
 root.overrideredirect(True) #
 
-# Make the window fully opaque but without the standard decorations
-root.attributes('-alpha', 1.0) 
 
-label = tk.Label(self.frame, bg='lightgray')
-label.pack(pady=20)
-
-label.bind("<ButtonPress-1>", self.start_move)
-label.bind("<B1-Motion>", self.do_move)
 
 #obtient seulement la date d'aujourd'hui
 jour1 = datetime.now().date()
