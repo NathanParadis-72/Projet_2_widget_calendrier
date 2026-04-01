@@ -6,7 +6,8 @@ programme pour extraire de l'information pertinente d'un fichier .ical afin de p
 
 
 import sys
-
+import os
+import urllib.request
 
 
 
@@ -49,6 +50,62 @@ def formateur_heure(liste_evenement):
             heureformatee = heure[:2] + "h" + heure[2:]
     
             liste_evenement[i][1] = heureformatee
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def sauvegarde_calendrier():
+    """
+    Fonction pour voir si un fichier de sauvegarde avec l'url du calendrier existe, et si oui, mettre son contenu
+    dans une varible. Si le fichier n'existe pas, la fonction demande a l'utilisateur d'input l'url de son calendrier
+    afin de créer une sauvegarde.
+    Entrées: Aucune, demande l'input de l'utilisateur au besoin.
+    Sorties: Variable contenant le contenu du fichier ical/ics, et un fichier .txt contenant le url du calendrier.
+    """
+
+    try: 
+        #essaie d'ouvrir le fichier de sauvegarde
+        sauvegarde_url = open('basic.ics', "r")
+        url_cal = sauvegarde_url.read()
+        sauvegarde_url.close()
+    
+    except FileNotFoundError:
+        #si il ne trouve pas le fichier, il le crée, premierement il demande un input
+        url_cal = input("Entrez le URL de votre calendrier (il se trouve dans 'settings and sharing' > 'integrate calendar'"
+        " > 'secret adress in ical format')\n\nURL: ")
+
+        #va trouver le path du repertoire courant du code
+        repertoire_code = os.path.dirname(os.path.abspath(__file__))
+
+        #prend seulement le dernier item du url, qui devient le nom du fichier
+        filename = url_cal.split("/")[-1]
+    
+        path_sauvegarde_url = os.path.join(repertoire_code, filename)
+        urllib.request.urlretrieve(url_cal, path_sauvegarde_url)
+        
+        
+        sauvegarde_url = open('basic.ics', "r")
+        url_cal = sauvegarde_url.read()
+        sauvegarde_url.close()
+
+
+    return url_cal
+
 
 
 
