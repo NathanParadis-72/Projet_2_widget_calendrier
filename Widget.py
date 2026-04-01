@@ -13,7 +13,15 @@ root.attributes("-transparentcolor", "red")
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
-calendrier = [{'nom': "Nom de l'evenement", 'debut': ['20260328', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260329', '133000Z'], 'fin': ['20260312', '153000Z']}]
+calendrier = [{'nom': "Nom de l'evenement", 'debut': ['20260331', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260329', '133000Z'], 'fin': ['20260312', '153000Z']}]
+
+
+"""
+Fonction gerant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
+Input: La date represente la date actuelle ou futur. evenements est quel evenement du ical sera mis dans l'affichage.
+Colonne est pour positionner la date et positionner les separateurs dans le GUI.
+output: Les evenements formater d'une journee, sous la date, dans la bonne colonne du GUI
+"""
 
 def affichage(evenements,date,colonne):
     horaire = ""
@@ -38,4 +46,3 @@ for i in range(7):
     affichage(evenements, date, i)
 
 root.mainloop()
-

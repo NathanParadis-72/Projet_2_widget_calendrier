@@ -80,7 +80,7 @@ def sauvegarde_calendrier():
 
     try: 
         #essaie d'ouvrir le fichier de sauvegarde
-        sauvegarde_url = open('basic.ics', "r")
+        sauvegarde_url = open('sauvegarde_calendrier', "r")
         url_cal = sauvegarde_url.read()
         sauvegarde_url.close()
     
@@ -92,14 +92,14 @@ def sauvegarde_calendrier():
         #va trouver le path du repertoire courant du code
         repertoire_code = os.path.dirname(os.path.abspath(__file__))
 
-        #prend seulement le dernier item du url, qui devient le nom du fichier
-        filename = url_cal.split("/")[-1]
+        #prend seulement le dernier item du url, qui deviendra le nom du fichier de sauvegarde
+        filename = "sauvegarde_url_calendrier"
     
         path_sauvegarde_url = os.path.join(repertoire_code, filename)
         urllib.request.urlretrieve(url_cal, path_sauvegarde_url)
         
         
-        sauvegarde_url = open('basic.ics', "r")
+        sauvegarde_url = open('sauvegarde_calendrier', "r")
         url_cal = sauvegarde_url.read()
         sauvegarde_url.close()
 
