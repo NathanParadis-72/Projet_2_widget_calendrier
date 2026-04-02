@@ -22,7 +22,6 @@ def trieur_liste(liste_evenement):
     Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
     a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la
     position 3 qui contient la date et l'heure de fin de l'evenement.
-    
     """
     for i in range(4):
         if i % 2 == 0:
