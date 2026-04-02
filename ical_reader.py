@@ -28,7 +28,6 @@ def trieur_liste(liste_evenement):
             continue
         else:
             liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("Z", "").split(":")
-    
 
 
 
@@ -153,8 +152,8 @@ def output_listemere(listemere):
     Entrées: Liste formattée qui sort de la fonction: "formatage_listemere"
     Sorties: fichier text contenant la liste
     """
-    fichier_output = open('fichier_liste-mere.txt', 'w+,')
-    fichier_output.write(listemere)
+    fichier_output = open('fichier_liste-mere.txt', 'w+')
+    fichier_output.write(str(listemere))
     fichier_output.close()
 
 
@@ -174,7 +173,7 @@ def formatage_listemere():
     Sorties: Liste complétée et formattée contenant des dictionnaires qui contiennent les information des 
     événements dans le calendrier
     """
-    #création de la liste mere du calendrier, sert a plus qu'une semaine, changer le nom au besoin! ! !
+    #création de la liste mere du calendrier
     listemere = []
 
     #création de la liste d'événements qu'on va utiliser pour le reste du code
@@ -215,7 +214,7 @@ def formatage_listemere():
 
 
     #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques KB
-    #output_listemere(listemere)
+    output_listemere(listemere)
 
 
 
