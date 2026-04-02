@@ -13,7 +13,7 @@ root.attributes("-transparentcolor", "red")
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
-calendrier = [{'nom': "Nom de l'evenement", 'debut': ['20260331', '160000z'], 'fin': ['20260314', '170000Z']}, {'nom': 'evenement 2', 'debut': ['20260329', '133000Z'], 'fin': ['20260312', '153000Z']}]
+calendrier = [{'nom': 'ANOTHER', 'debut': ['20260403', '09h30'], 'fin': ['20260403', '18h00']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '13h30'], 'fin': ['20260312', '15h30']}, {'nom': 'TEST2', 'debut': ['20260314', '16h00'], 'fin': ['20260314', '17h00']}, {'nom': 'THIS IS TEST', 'debut': ['20260331', '22h00'], 'fin': ['20260401', '01h30']}]
 
 
 """

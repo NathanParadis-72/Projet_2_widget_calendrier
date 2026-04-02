@@ -28,7 +28,6 @@ def trieur_liste(liste_evenement):
         if i % 2 == 0:
             continue
         else:
-            #tu peux .replace("T", ":").replace("Z", "") et enlever une des deux lignes.
             liste_evenement[i] = liste_evenement[i].replace("T", ":").replace("Z", "").split(":")
     
 
@@ -89,14 +88,13 @@ def extracteur_donnees_cal():
     calpropre = donnees_cal.replace("\n", ",").replace(",END:VCALENDAR", "")
     
     #crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
-    listecal = calpropre.split("BEGIN:VEVENT") 
+    listecal = calpropre.split("BEGIN:VEVENT")
     
     #on enleve l'item 0 puisqu'il ne contient aucun info d'événement
     listecal.remove(listecal[0])
 
 
     return listecal
-
 
 
 
@@ -182,7 +180,6 @@ def formatage_listemere():
 
     #création de la liste d'événements qu'on va utiliser pour le reste du code
     listecal = sauvegarde_calendrier()
-    print(listecal)
 
     for evenement in listecal:
         #creer une liste a partir des evennements dans la liste du calendrier
@@ -210,7 +207,7 @@ def formatage_listemere():
         
 
 
-        #on crée une nouvelle liste et on rentre les informations de l'evenement dedans
+        #on crée une nouvelle dictionnaire et on rentre les informations de l'evenement dedans
         nouvel_evenement = {"nom" : liste_evenement[5], "debut" : liste_evenement[1], "fin" : liste_evenement[3]}
         
         #et on rajoute la liste de l'événement dans le prochain item de la liste calendrier mere
@@ -219,7 +216,7 @@ def formatage_listemere():
 
 
     #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques KB
-    output_listemere(listemere)
+    #output_listemere(listemere)
 
 
 
