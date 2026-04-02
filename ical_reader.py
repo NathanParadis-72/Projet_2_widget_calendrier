@@ -150,6 +150,12 @@ def sauvegarde_calendrier():
 
 ### requis pour le projet, cette fonction ne sert pas en dehors du cadre du projet scolaire ###
 def output_listemere(listemere): 
+    """
+    Fonction pour output la liste mère du calendrier dans un fichier text afin d'aller gratouiller tous les points possibles sur
+    ce projet
+    Entrées: Liste formattée qui sort de la fonction: "formatage_listemere"
+    Sorties: fichier text contenant la liste
+    """
     fichier_output = open('fichier_liste-mere.txt', 'w+,')
     fichier_output.write(listemere)
     fichier_output.close()
