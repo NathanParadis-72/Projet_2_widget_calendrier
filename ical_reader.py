@@ -5,7 +5,6 @@ Par: Nathan Paradis et Arnaud Baril
 
 
 
-import sys
 import os
 import urllib.request
 
@@ -147,9 +146,24 @@ def sauvegarde_calendrier():
 
 
 
+
+
+### requis pour le projet, cette fonction ne sert pas en dehors du cadre du projet scolaire ###
+def output_listemere(listemere): 
+    fichier_output = open('fichier_liste-mere.txt', 'w+,')
+    fichier_output.write(listemere)
+    fichier_output.close()
+
+
+
+
+
+
+
 ##### Fonction contenant tout le code necessaire pour widget.py #####
 
-def fonction_finale():
+#fonction finale
+def formatage_listemere():
     """
     Fonction pour créer une liste mere contenant des dictionnaires d'événements formattées de maniere a pouvoir
     etre lue par le code widget.py pour afficher des informations sur des événements dans un calendrier
@@ -197,10 +211,13 @@ def fonction_finale():
         listemere.append(nouvel_evenement)
 
 
+
+    #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques KB
+    output_listemere(listemere)
+
+
+
     return listemere
-
-        
-
 
 
 
@@ -212,6 +229,6 @@ def fonction_finale():
 
 
 #CODE QUI MARCHE HELL YEAH
-listemere = fonction_finale()
+listemere = formatage_listemere()
 
 print(listemere)
