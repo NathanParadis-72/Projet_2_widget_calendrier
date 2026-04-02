@@ -9,7 +9,6 @@ root = tk.Tk()
 root.configure(bg='red')
 root.attributes("-transparentcolor", "red")
 
-root.overrideredirect(True) #
 
 
 
