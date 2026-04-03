@@ -51,3 +51,4 @@ Le calendrier se met automatiquement a jour grace au lien url du calendrier si l
 - aligner les evenements a gauche a la place d'au centre dans les cases du calendrier?
 - finaliser la doc (readme, commentaires)
 - tester avec differents evenements (evenements qui se répetent, qui durent plusieurs journées, etc etc)
+- autres idées/points?
