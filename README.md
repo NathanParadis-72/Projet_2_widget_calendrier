@@ -37,3 +37,17 @@ Le calendrier se met automatiquement a jour grace au lien url du calendrier si l
 - Ne pas avoir acces a internet pendant le premier lancement du programme (pour creer le fichier de backup du calendrier) ne fonctionne pas, car le programme a besoin d'aller chercher un fichier .ical/.ics afin de le sauvegarder pour les prochaines utilisations.
 - (ON NE SAIT PAS CE QUE LE CALENDRIER FAIT SI UN EVENEMENT EST RÉPÉTÉ SUR UNE PERIODE DE TEMPS, POURRAIT BRISER LE CALENDRIER)
 <br><br>
+
+
+
+
+
+
+
+
+
+
+### TRUCS A CHANGER AVANT LA REMISE ###
+- aligner les evenements a gauche a la place d'au centre dans les cases du calendrier?
+- finaliser la doc (readme, commentaires)
+- tester avec differents evenements (evenements qui se répetent, qui durent plusieurs journées, etc etc)
