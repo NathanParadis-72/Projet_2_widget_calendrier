@@ -22,7 +22,7 @@ Une fenetre de style widget sur votre écran d'ordinateur qui affiche les inform
 
 
 # Controle:
-Ouvrez Widget.py, l'utilisateur devra entrer un url particulier dans le terminal (les instructions sont affichées, il s'agit de "l'url secret" du calendrier google de l'utilisateur). Le programme créera sauvegarde_url.txt. Si sauvegarde_url.txt existe déja, le programme ne demande pas d'url et met le calendrier à jour.
+Ouvrez Widget.py, l'utilisateur devra entrer un url particulier dans le terminal (les instructions sont affichées avec la demande d'url du programme, il s'agit de "l'url secret" du calendrier google de l'utilisateur). Le programme créera sauvegarde_url.txt. Si sauvegarde_url.txt existe déja, le programme ne demande pas d'url et met le calendrier à jour.
 
 Pour changer le calendrier affiché, supprimer le fichier "sauvegarde_url.txt". le programme demandera alors un nouvel url au prochain lancement.
 
@@ -31,11 +31,11 @@ Le calendrier se mettra à jour automatiquement à chaque ouverture du programme
 
 
 # Fonctionalités:
-Entrer l'url d'un fichier .ical/.ics pour avoir access à tous les événements des 7 prochains jours son calendrier sur le bureau de son ordinateur, classé par journée. 
+Entrer l'url d'un fichier .ical/.ics pour avoir accès à tous les événements des 7 prochains jours son calendrier sur le bureau de son ordinateur, classé par journée. 
 
-Le calendrier se met automatiquement à jour grâce au lien url du calendrier si l'ordinateur à acces à internet.
+Le calendrier se met automatiquement à jour grâce au lien url du calendrier si l'ordinateur à accès à internet.
 
-Si l'ordinateur n'a pas de connexion internet ou que l'adresse rentré est fautive, un message apparait disant que la mise à jour se fera la prochaine fois que le programme sera ouvert.
+Si l'ordinateur n'a pas de connexion internet ou que l'adresse entrée est fautive, un message apparait disant que la mise à jour se fera la prochaine fois que le programme sera ouvert.
 <br><br>
 
 
@@ -52,18 +52,8 @@ Si l'ordinateur n'a pas de connexion internet ou que l'adresse rentré est fauti
 - Une connexion internet est nécessaire à la première utilisation
 - Une connexion internet est necessaire pour une mise à jour du calendrier
 - Le programme ne peut pas afficher plus d'un calendrier à la fois
-<br><br>
+<br><br><br><br><br>
 
 
-
-
-
-
-
-
-
-
-### TRUCS A CHANGER AVANT LA REMISE ###
-- aligner les evenements a gauche a la place d'au centre dans les cases du calendrier?
-- double check que jai pas écrit des niaiseries ou laissé des commentaires pour moi meme dans le code
-- autres idées/points?
+### Url de calendrier pour tester le programme ###
+https://calendar.google.com/calendar/ical/5c00938c1050bc95afbdd5adff43864f7f85c741f09dd4eeddcebd66574ff589%40group.calendar.google.com/private-932dca24babb4051bff064591932eac5/basic.ics
