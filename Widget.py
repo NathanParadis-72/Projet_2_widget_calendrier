@@ -7,6 +7,7 @@ Version de remise
 from datetime import datetime, timedelta
 import tkinter as tk
 from tkinter import ttk
+import ical_reader.py
 
 #fait apparaitre de GUI.
 root = tk.Tk()
@@ -15,19 +16,18 @@ root = tk.Tk()
 root.configure(bg='red')
 root.attributes("-transparentcolor", "red")
 
-
-
+#voir note ical_reader
+listemere = formatage_listemere()
 
 #obtient seulement la date d'aujourd'hui.
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
-calendrier = [{'nom': 'evenement test again', 'debut': ['20260406', '10h00'], 'fin': ['20260406', '14h00']}, {'nom': 'THIS IS TEST', 'debut': ['20260331', '22h00'], 'fin': ['20260401', '01h30']}, {'nom': 'ANOTHER', 'debut': ['20260403', '09h30'], 'fin': ['20260403', '18h00']}, {'nom': 'TESTTESTTEST', 'debut': ['20260312', '13h30'], 'fin': ['20260312', '15h30']}, {'nom': 'TEST2', 'debut': ['20260314', '16h00'], 'fin': ['20260314', '17h00']}, {'nom': 'autre', 'debut': ['20260407', '21h30'], 'fin': ['20260407', '23h30']}]
-
+calendrier = listemere
 
 """
 Fonction gerant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
-Input: La date represente la date actuelle ou futur. evenements est quel evenement du ical sera mis dans l'affichage.
+Input: La date represente la date la journee du calendrier qui sera afficher et remplie. evenements est quel evenement du ical sera mis dans l'affichage.
 Colonne est pour positionner la date et positionner les separateurs dans le GUI.
 output: Les evenements formater d'une journee, sous la date, dans la bonne colonne du GUI
 """
