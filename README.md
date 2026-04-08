@@ -14,7 +14,10 @@ Un url de calendrier .ical/.ics, entré dans le terminal au premier lancement de
 
 
 # Sorties:
-Une fenetre de style widget sur votre écran d'ordinateur qui affiche les informations du fichier .ical/.ics sous la forme d'événements avec toutes les informations pertinentes telles que l'heure de début, l'heure de fin et le nom de l'événement.
+Une fenetre de style widget sur votre écran d'ordinateur qui affiche les informations du fichier .ical/.ics sous la forme d'événements avec toutes les informations pertinentes telles que l'heure de début, l'heure de fin et le nom de l'événement, ainsi que:
+- un fichier de sauvegarde de l'url du calendrier en format .txt
+- un fichier de sauvegarde du calendrier en format .ics
+- un fichier de sauvegarde de la liste formatée utilisée dans widget.py en format .txt
 <br><br>
 
 
@@ -43,10 +46,12 @@ Si l'ordinateur n'a pas de connexion internet ou que l'adresse rentré est fauti
   - une location
   - un événement sur plusieurs jours 
   - un événement qui se répète automatiquement
+  - un titre avec des accents ou des caractères spéciaux (ca ne brise pas le programme mais c'est pas très beau)
+- Le calendrier affiche l'heure en Coordinated Universal Time ou UTC, peu importe votre fuseau horaire
 - il est déconseillé d'utiliser un calendrier partagé, il pourrait causer des erreurs
-- Une connexion internet est nécessaire à la première utilisation.
-- Une connexion internet est necessaire pour une mise à jour du calendrier.
-- Le programme ne peut pas afficher plus d'un calendrier à la fois.
+- Une connexion internet est nécessaire à la première utilisation
+- Une connexion internet est necessaire pour une mise à jour du calendrier
+- Le programme ne peut pas afficher plus d'un calendrier à la fois
 <br><br>
 
 
