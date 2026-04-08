@@ -26,10 +26,10 @@ calendrier = formatage_listemere() #voir notes ical_reader
 
 def affichage(evenements,date,colonne):
     """
-    Fonction gérant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
-    Input: La date represente la date la journee du calendrier qui sera afficher et remplie. evenements est quel evenement du ical sera mis dans l'affichage.
+    Fonction gérant l'affichage des évènements, des dates et leurs positionnnements dans le GUI.
+    Input: La date represente la journee du calendrier qui sera afficher et remplie. évènements est quel évènement du ical sera mis dans l'affichage.
     Colonne est pour positionner la date et positionner les separateurs dans le GUI.
-    output: Les evenements formater d'une journee, sous la date, dans la bonne colonne du GUI
+    output: Les évènements formater d'une journee, sous la date, dans la bonne colonne du GUI.
     """
     horaire = ""
     date_du_jour = tk.Label(text=f"  {(date.strftime("%a"))}  {date} ", bg = 'red', fg = 'cyan', font = ('Helvetica', 12, "bold")) #cree le label en haut de la journee avec la date et le jour.
@@ -38,7 +38,7 @@ def affichage(evenements,date,colonne):
     for event in range(len(calendrier)): #pour chaque évènement du calendrier, regarde si les dates correspondent.
         if calendrier[event]['debut'][0] == now_compare: 
             evenements.append(calendrier[event])
-    for event in range(len(evenements)): #chaque evenement est rajoutée a la bonne journee et est formatée pour être lisible.
+    for event in range(len(evenements)): #chaque évènement est rajoutée à la bonne journée et est formatée pour être lisible.
        horaire += f"{evenements[event]['nom']}\n start:{evenements[event]['debut'][1]}\n end:{evenements[event]['fin'][1]}\n\n "
     evenement_du_jour = tk.Label(wraplength= 300,  anchor = tk.W, justify= tk.LEFT, text = f" {horaire}", bg="red", fg='white', font = ("Arial", 10))
     evenement_du_jour.grid(row = 1, column = colonne)
