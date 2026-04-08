@@ -75,7 +75,7 @@ def mise_a_jour_cal(url_cal):
 
 def extracteur_donnees_cal():
     """
-    Fonction pour creer une liste contenant les infos du fichier .ics du calendrier
+    Fonction pour créer une liste contenant les infos du fichier .ics du calendrier
     Entrées: Aucune
     Sorties: Liste contenant les événements du calendrier
     """
