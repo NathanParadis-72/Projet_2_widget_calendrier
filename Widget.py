@@ -22,14 +22,15 @@ jour1 = datetime.now().date()
 #la variable contenant le calendrier.
 calendrier = formatage_listemere() #voir notes ical_reader
 
-"""
-Fonction gerant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
-Input: La date represente la date la journee du calendrier qui sera afficher et remplie. evenements est quel evenement du ical sera mis dans l'affichage.
-Colonne est pour positionner la date et positionner les separateurs dans le GUI.
-output: Les evenements formater d'une journee, sous la date, dans la bonne colonne du GUI
-"""
+
 
 def affichage(evenements,date,colonne):
+    """
+    Fonction gerant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
+    Input: La date represente la date la journee du calendrier qui sera afficher et remplie. evenements est quel evenement du ical sera mis dans l'affichage.
+    Colonne est pour positionner la date et positionner les separateurs dans le GUI.
+    output: Les evenements formater d'une journee, sous la date, dans la bonne colonne du GUI
+    """
     horaire = ""
     date_du_jour = tk.Label(text=f"  {(date.strftime("%a"))}  {date} ", bg = 'red', fg = 'cyan', font = ('Helvetica', 12, "bold")) #cree le label en haut de la journee avec la date et le jour.
     date_du_jour.grid(row = 0, column = colonne) #positionnement de la date.
