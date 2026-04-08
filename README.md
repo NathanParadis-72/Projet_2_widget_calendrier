@@ -19,7 +19,7 @@ Une fenetre de style widget sur votre écran d'ordinateur qui affiche les inform
 
 
 # Controle:
-Au démarrage du programme, l'utilisateur devra entrer un url particulier dans le terminal (les instructions sont affichées, il s'agit de "l'url secret" du calendrier google de l'utilisateur), cet url s'occupe d'aller chercher les informations dans le calendrier de l'utilisateur ainsi que de le mettre à jour à chaque lancement du programme. Si l'url existe deja dans sauvegarde_url.txt (créé automatiquement à la première utilisation), le programme ne demande pas d'url et met le calendrier à jour.
+Au démarrage du programme, l'utilisateur devra entrer un url particulier dans le terminal (les instructions sont affichées, il s'agit de "l'url secret" du calendrier google de l'utilisateur). Si l'url existe deja dans le fichier sauvegarde_url.txt (créé automatiquement à la première utilisation), le programme ne demande pas d'url et met le calendrier à jour.
 
 Pour changer le calendrier affiché, supprimer le fichier "sauvegarde_url.txt". le programme demandera alors un nouvel url au prochain lancement.
 
