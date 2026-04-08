@@ -1,18 +1,24 @@
+"""
+nom du jeu: Calendrier du moment
+Auteur: Arnaud Baril & Nathan Paradis
+Version de remise
+"""
+
 from datetime import datetime, timedelta
 import tkinter as tk
 from tkinter import ttk
 
-#fait apparaitre de GUI
+#fait apparaitre de GUI.
 root = tk.Tk()
 
-#configure rend le background rouge et attribute rend tout ce qui est rouge transparent
+#.configure rend le background rouge et .attribute rend tout ce qui est rouge transparent.
 root.configure(bg='red')
 root.attributes("-transparentcolor", "red")
 
 
 
 
-#obtient seulement la date d'aujourd'hui
+#obtient seulement la date d'aujourd'hui.
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
@@ -29,7 +35,7 @@ output: Les evenements formater d'une journee, sous la date, dans la bonne colon
 def affichage(evenements,date,colonne):
     horaire = ""
     date_du_jour = tk.Label(text=f"  {(date.strftime("%a"))}  {date} ", bg = 'red', fg = 'cyan', font = ('Helvetica', 12, "bold")) #cree le label en haut de la journee avec la date et le jour.
-    date_du_jour.grid(row = 0, column = colonne) #positionnement de la date
+    date_du_jour.grid(row = 0, column = colonne) #positionnement de la date.
     now_compare = date.strftime("%Y%m%d") 
     for event in range(len(calendrier)): #pour chaque evenement du calendrier, regarde si les dates correspondent.
         if calendrier[event]['debut'][0] == now_compare: 
@@ -42,11 +48,11 @@ def affichage(evenements,date,colonne):
     separateur.grid(row=0, column=colonne, columnspan=1,  rowspan=12, sticky="wns")
 
 
-#Sert pour faire les 7 jours du calendrier. chaque loop fait remplie une journee.
+#chaque loop remplie une journee du calendrier.
 for i in range(7):
     date = jour1 + timedelta(days = i)
     evenements = []
     affichage(evenements, date, i)
 
-#Maintient le GUI existant
+#Maintient le GUI existant.
 root.mainloop() 
