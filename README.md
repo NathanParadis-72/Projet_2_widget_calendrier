@@ -4,7 +4,7 @@
 
 
 # Résumé du projet:
-Ce projet est un widget de calendrier pour PC, il permet de voir les taches/evenement des 7 prochains jours a partir d'un fichier de calendrier de type .ical/.ics, un peu comme la fenetre calendrier que l'on pourrait voir sur un écran de cellulaire.
+Ce projet est un widget de calendrier pour PC, il permet de voir les tâches/évènement des 7 prochains jours à partir d'un fichier de calendrier de type .ical/.ics, un peu comme la fenêtre calendrier que l'on pourrait voir sur un écran de cellulaire.
 <br><br>
 
 
@@ -30,7 +30,7 @@ Le calendrier se mettra à jour automatiquement à chaque ouverture du programme
 # Fonctionalités:
 Entrer l'url d'un fichier .ical/.ics pour avoir access à tous les événements des 7 prochains jours son calendrier sur le bureau de son ordinateur, classé par journée. 
 
-Le calendrier se met automatiquement à jour grace au lien url du calendrier si l'ordinateur à acces à internet.
+Le calendrier se met automatiquement à jour grâce au lien url du calendrier si l'ordinateur à acces à internet.
 
 Si l'ordinateur n'a pas de connexion internet ou que l'adresse rentré est fautive, un message apparait disant que la mise à jour se fera la prochaine fois que le programme sera ouvert.
 <br><br>
