@@ -38,15 +38,15 @@ Si l'ordinateur n'a pas de connexion internet ou que l'adresse entrée est fauti
 
 # Limitations:
 - Le calendrier ne doit pas contenir d'événement avec:
-  - des descriptions
-  - des evenements partagés
+  - une description
+  - des événements partagés
   - une location
   - un événement sur plusieurs jours 
-  - un événement qui se repete automatiquement
-- vous ne pouvez pas utiliser un calendrier partagé
-- Une connexion internet est nécessaire a la première utilisation.
-- Une connexion internet est necessaire pour une mise a jour du calendrier.
-- Le programme ne peut pas afficher plus d'un calendrier a la fois.
+  - un événement qui se répète automatiquement
+- il est déconseillé d'utiliser un calendrier partagé, il pourrait causer des erreurs
+- Une connexion internet est nécessaire à la première utilisation.
+- Une connexion internet est necessaire pour une mise à jour du calendrier.
+- Le programme ne peut pas afficher plus d'un calendrier à la fois.
 <br><br>
 
 
