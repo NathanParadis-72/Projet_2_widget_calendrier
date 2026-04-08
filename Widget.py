@@ -1,6 +1,6 @@
 """
-nom du jeu: Calendrier du moment
-Auteur: Arnaud Baril & Nathan Paradis
+Nom du projet: Calendrier du moment
+Par: Arnaud Baril & Nathan Paradis
 Version de remise
 """
 
