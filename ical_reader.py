@@ -1,5 +1,6 @@
 """
-Programme pour extraire de l'information pertinente d'un fichier .ics afin de pouvoir l'utiliser dans le widget calendrier
+Programme pour extraire de l'information pertinente d'un fichier .ics afin de pouvoir l'utiliser dans le code du 
+widget calendrier
 Par: Nathan Paradis et Arnaud Baril
 Version de remise
 """
