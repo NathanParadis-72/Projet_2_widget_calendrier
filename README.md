@@ -19,7 +19,7 @@ Une fenetre de style widget sur votre écran d'ordinateur qui affiche les inform
 
 
 # Controle:
-TEXT ICI
+Lorsque le programme est démarré, il demandera a l'utilisateur d'entrer un url particulier dans le terminal, cet url est très important car c'est lui qui s'occupe d'aller chercher les informations dans le calendrier de l'utilisateur ainsi que de 
 <br><br>
 
 
