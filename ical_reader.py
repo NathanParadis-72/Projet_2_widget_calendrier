@@ -11,7 +11,7 @@ import urllib.request
 
 
 
-### Définition de fonctions ###
+### Définition des fonctions ###
 
 
 def trieur_liste(liste_evenement):
