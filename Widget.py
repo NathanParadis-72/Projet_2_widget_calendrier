@@ -7,7 +7,7 @@ Version de remise
 from datetime import datetime, timedelta
 import tkinter as tk
 from tkinter import ttk
-from ical_reader import formatage_listemere
+from ics_reader import formatage_listemere
 
 #fait apparaitre de GUI.
 root = tk.Tk()
@@ -20,7 +20,7 @@ root.attributes("-transparentcolor", "red")
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
-calendrier = formatage_listemere() #voir notes ical_reader
+calendrier = formatage_listemere() #voir notes ics_reader
 
 
 
