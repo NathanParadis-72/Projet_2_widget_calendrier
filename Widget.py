@@ -38,7 +38,7 @@ def affichage(evenements,date,colonne):
     for event in range(len(calendrier)): #pour chaque evenement du calendrier, regarde si les dates correspondent.
         if calendrier[event]['debut'][0] == now_compare: 
             evenements.append(calendrier[event])
-    for event in range(len(evenements)): #chaque evenement est rajoutee a la bonne journee et est formater pour etre lisible.
+    for event in range(len(evenements)): #chaque evenement est rajoutée a la bonne journee et est formatée pour être lisible.
        horaire += f"{evenements[event]['nom']}\n start:{evenements[event]['debut'][1]}\n end:{evenements[event]['fin'][1]}\n\n "
     evenement_du_jour = tk.Label(wraplength= 300,  anchor = tk.W, justify= tk.LEFT, text = f" {horaire}", bg="red", fg='white', font = ("Arial", 10))
     evenement_du_jour.grid(row = 1, column = colonne)
@@ -46,7 +46,7 @@ def affichage(evenements,date,colonne):
     separateur.grid(row=0, column=colonne, columnspan=1,  rowspan=12, sticky="wns")
 
 
-#chaque loop remplie une journee du calendrier.
+#chaque loop remplit une journée du calendrier.
 for i in range(7):
     date = jour1 + timedelta(days = i)
     evenements = []
