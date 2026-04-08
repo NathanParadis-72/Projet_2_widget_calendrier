@@ -47,17 +47,3 @@ Le calendrier se met automatiquement à jour grace au lien url du calendrier si 
 - Une connexion internet est necessaire pour une mise a jour du calendrier.
 - Le programme ne peut pas afficher plus d'un calendrier a la fois.
 <br><br>
-
-
-
-
-
-
-
-
-
-
-### TRUCS A CHANGER AVANT LA REMISE ###
-- aligner les evenements a gauche a la place d'au centre dans les cases du calendrier?
-- double check que jai pas écrit des niaiseries ou laissé des commentaires pour moi meme dans le code
-- autres idées/points?
