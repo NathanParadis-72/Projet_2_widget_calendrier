@@ -18,11 +18,11 @@ import urllib.request
 def trieur_liste(liste_evenement):
     """
     Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de
-    deux items a partir des items 1 et 3 de la liste a l'entrée.
-    Entrées: liste d'un événement .ics avec la date et heure de début a la position 1, et la date et heure de fin 
-    a la position 3
+    deux items à partir des items 1 et 3 de la liste à l'entrée.
+    Entrées: liste d'un événement .ics avec la date et heure de début à la position 1, et la date et heure de fin 
+    à la position 3
     Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
-    a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la
+    à la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste à la
     position 3 qui contient la date et l'heure de fin de l'événement.
     """
     for i in range(4):
@@ -55,9 +55,9 @@ def formateur_heure(liste_evenement):
 
 def mise_a_jour_cal(url_cal):
     """
-    Fonction pour mettre a jour le fichier .ics dans le repertoire du code
+    Fonction pour mettre à jour le fichier .ics dans le repertoire du code
     Entrées: Le url du fichier .ics
-    Sorties: Le fichier de sauvegarde de calendrier mis a jour
+    Sorties: Le fichier de sauvegarde de calendrier mis à jour
     """
     #trouve le path du repertoire courant du code
     repertoire_code = os.path.dirname(os.path.abspath(__file__))
@@ -101,7 +101,7 @@ def extracteur_donnees_cal():
 def sauvegarde_calendrier():
     """
     Fonction pour voir si un fichier de sauvegarde avec l'url du calendrier existe, et si oui, mettre son contenu
-    dans une varible. Si le fichier n'existe pas, la fonction demande a l'utilisateur d'input l'url de son calendrier
+    dans une varible. Si le fichier n'existe pas, la fonction demande à l'utilisateur d'input l'url de son calendrier
     afin de créer une sauvegarde.
     Entrées: Aucune, demande l'input de l'utilisateur au besoin.
     Sorties: Un fichier .txt contenant le url du calendrier, et une variable contenant le contenu du fichier .ics
@@ -132,7 +132,7 @@ def sauvegarde_calendrier():
             listecal = extracteur_donnees_cal()
 
     except urllib.error.URLError:
-        print("Pas de connexion internet, le calendrier se mettra a jour la prochaine fois que vous y aurez acces")
+        print("Pas de connexion internet, le calendrier se mettra à jour la prochaine fois que vous y aurez acces")
         sauvegarde = open('sauvegarde_calendrier.ics', 'r')
         listecal = sauvegarde.read()
         sauvegarde.close()
@@ -169,7 +169,7 @@ def output_listemere(listemere):
 #fonction finale
 def formatage_listemere():
     """
-    Fonction pour créer une liste mere contenant des dictionnaires d'événements formattées de maniere a pouvoir
+    Fonction pour créer une liste mere contenant des dictionnaires d'événements formattées de maniere à pouvoir
     être lue par le code widget.py pour afficher des informations sur des événements dans un calendrier
     Entrées: Aucune
     Sorties: Liste complétée et formattée contenant des dictionnaires qui contiennent les information des 
@@ -182,7 +182,7 @@ def formatage_listemere():
     listecal = sauvegarde_calendrier()
 
     for evenement in listecal:
-        #créer une liste a partir des événements dans la liste du calendrier
+        #créer une liste à partir des événements dans la liste du calendrier
         infos_evenement = str(evenement).split(",")
         
         
@@ -193,7 +193,7 @@ def formatage_listemere():
         
         infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
 
-        #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque événement
+        #refaire la liste mais en la séparant à des endroits differents pour préparer les clés pour chaque événement
         liste_evenement = str(infos_evenement_propre).split(":")
         
         
@@ -202,7 +202,7 @@ def formatage_listemere():
         trieur_liste(liste_evenement)
 
 
-        #fonction pour formater les heures pour les rendre plus facile a lire sur le calendrier
+        #fonction pour formater les heures pour les rendre plus facile à lire sur le calendrier
         formateur_heure(liste_evenement)
         
 
