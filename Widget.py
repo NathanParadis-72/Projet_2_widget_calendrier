@@ -35,7 +35,7 @@ def affichage(evenements,date,colonne):
     date_du_jour = tk.Label(text=f"  {(date.strftime("%a"))}  {date} ", bg = 'red', fg = 'cyan', font = ('Helvetica', 12, "bold")) #cree le label en haut de la journee avec la date et le jour.
     date_du_jour.grid(row = 0, column = colonne) #positionnement de la date.
     now_compare = date.strftime("%Y%m%d") 
-    for event in range(len(calendrier)): #pour chaque evenement du calendrier, regarde si les dates correspondent.
+    for event in range(len(calendrier)): #pour chaque évènement du calendrier, regarde si les dates correspondent.
         if calendrier[event]['debut'][0] == now_compare: 
             evenements.append(calendrier[event])
     for event in range(len(evenements)): #chaque evenement est rajoutée a la bonne journee et est formatée pour être lisible.

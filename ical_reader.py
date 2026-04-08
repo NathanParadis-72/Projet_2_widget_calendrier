@@ -68,7 +68,7 @@ def mise_a_jour_cal(url_cal):
     #crée le path pour le fichier de sauvegarde
     path_sauvegarde_cal = os.path.join(repertoire_code, filename)
     
-    #entre les données du calendrier dans un nouveau fichier dans le repertoire du code
+    #entre les données du calendrier dans un nouveau fichier dans le répertoire du code
     urllib.request.urlretrieve(url_cal, path_sauvegarde_cal)
 
 
@@ -84,13 +84,13 @@ def extracteur_donnees_cal():
     donnees_cal = calendrier_ics.read() #sort les données du fichier .ics
     calendrier_ics.close()
     
-    #on enleve les caractères dont on a pas besoin et on prépare la création de liste
+    #on enlève les caractères dont on a pas besoin et on prépare la création de liste
     calpropre = donnees_cal.replace("\n", ",").replace(",END:VCALENDAR", "")
     
     #crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
     listecal = calpropre.split("BEGIN:VEVENT")
     
-    #on enleve l'item 0 puisqu'il ne contient aucun info d'événement
+    #on enlève l'item 0 puisqu'il ne contient aucun info d'événement
     listecal.remove(listecal[0])
 
 
