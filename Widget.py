@@ -5,7 +5,7 @@ from tkinter import ttk
 #fait apparaitre de GUI
 root = tk.Tk()
 
-#configure rend le background rouge et attribute rend tout ce qui est rouge transparent
+#.configure rend le background rouge et .attribute rend tout ce qui est rouge transparent
 root.configure(bg='red')
 root.attributes("-transparentcolor", "red")
 
