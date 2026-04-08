@@ -7,7 +7,7 @@ Version de remise
 from datetime import datetime, timedelta
 import tkinter as tk
 from tkinter import ttk
-import ical_reader.py
+from ical_reader import formatage_listemere
 
 #fait apparaitre de GUI.
 root = tk.Tk()
@@ -16,14 +16,11 @@ root = tk.Tk()
 root.configure(bg='red')
 root.attributes("-transparentcolor", "red")
 
-#voir note ical_reader
-listemere = formatage_listemere()
-
 #obtient seulement la date d'aujourd'hui.
 jour1 = datetime.now().date()
 
 #la variable contenant le calendrier.
-calendrier = listemere
+calendrier = formatage_listemere() #voir notes ical_reader
 
 """
 Fonction gerant l'affichage des evenements, des dates et leur positionnnement dans le GUI.
