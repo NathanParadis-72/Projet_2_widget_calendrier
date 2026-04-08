@@ -169,7 +169,7 @@ def output_listemere(listemere):
 def formatage_listemere():
     """
     Fonction pour créer une liste mere contenant des dictionnaires d'événements formattées de maniere a pouvoir
-    etre lue par le code widget.py pour afficher des informations sur des événements dans un calendrier
+    être lue par le code widget.py pour afficher des informations sur des événements dans un calendrier
     Entrées: Aucune
     Sorties: Liste complétée et formattée contenant des dictionnaires qui contiennent les information des 
     événements dans le calendrier
@@ -214,7 +214,7 @@ def formatage_listemere():
 
 
 
-    #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques bytes
+    #fonction requise pour le projet scolaire, peut être enlevée pour sauver quelques bytes
     output_listemere(listemere)
 
 
