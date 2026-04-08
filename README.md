@@ -4,7 +4,7 @@
 
 
 # Résumé du projet:
-Ce projet est un widget de calendrier pour PC, il permet de voir les taches/evenement d'une journée a partir un fichier de calendrier de type .ical/.ics, un peu comme la fenetre calendrier que l'on pourrait voir sur un écran de cellulaire.
+Ce projet est un widget de calendrier pour PC, il permet de voir les taches/evenement des 7 prochains jours a partir d'un fichier de calendrier de type .ical/.ics, un peu comme la fenetre calendrier que l'on pourrait voir sur un écran de cellulaire.
 <br><br>
 
 
