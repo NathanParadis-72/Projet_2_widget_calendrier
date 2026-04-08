@@ -1,5 +1,5 @@
 """
-Programme pour extraire de l'information pertinente d'un fichier .ical afin de pouvoir l'utiliser dans le widget calendrier
+Programme pour extraire de l'information pertinente d'un fichier .ics afin de pouvoir l'utiliser dans le widget calendrier
 Par: Nathan Paradis et Arnaud Baril
 Version de remise
 """
@@ -18,7 +18,7 @@ def trieur_liste(liste_evenement):
     """
     Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de
     deux items a partir des items 1 et 3 de la liste a l'entrée.
-    Entrées: liste d'un evenement ical avec la date et heure de début a la position 1, et la date et heure de fin 
+    Entrées: liste d'un evenement .ics avec la date et heure de début a la position 1, et la date et heure de fin 
     a la position 3
     Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
     a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la
@@ -54,8 +54,8 @@ def formateur_heure(liste_evenement):
 
 def mise_a_jour_cal(url_cal):
     """
-    Fonction pour mettre a jour le fichier .ical/.ics dans le repertoire du code
-    Entrées: Le url du fichier .ical/.ics
+    Fonction pour mettre a jour le fichier .ics dans le repertoire du code
+    Entrées: Le url du fichier .ics
     Sorties: Le fichier de sauvegarde de calendrier mis a jour
     """
     #ensuite il va trouver le path du repertoire courant du code
@@ -74,7 +74,7 @@ def mise_a_jour_cal(url_cal):
 
 def extracteur_donnees_cal():
     """
-    Fonction pour creer une liste contenant les infos du fichier .ical/.ics du calendrier
+    Fonction pour creer une liste contenant les infos du fichier .ics du calendrier
     Entrées: Aucune
     Sorties: Liste contenant les événements du calendrier
     """
@@ -103,7 +103,7 @@ def sauvegarde_calendrier():
     dans une varible. Si le fichier n'existe pas, la fonction demande a l'utilisateur d'input l'url de son calendrier
     afin de créer une sauvegarde.
     Entrées: Aucune, demande l'input de l'utilisateur au besoin.
-    Sorties: Un fichier .txt contenant le url du calendrier, et une variable contenant le contenu du fichier ical/ics
+    Sorties: Un fichier .txt contenant le url du calendrier, et une variable contenant le contenu du fichier .ics
     """
     try:
         
@@ -148,8 +148,8 @@ def sauvegarde_calendrier():
 ### requis pour le projet, cette fonction ne sert pas en dehors du cadre du projet scolaire ###
 def output_listemere(listemere): 
     """
-    Fonction pour output la liste mère du calendrier dans un fichier text afin d'aller gratouiller tous les points possibles sur
-    ce projet
+    Fonction pour output la liste mère du calendrier dans un fichier text afin d'aller gratouiller tous les points possibles
+    sur ce projet
     Entrées: Liste formattée qui sort de la fonction: "formatage_listemere"
     Sorties: fichier text contenant la liste
     """
