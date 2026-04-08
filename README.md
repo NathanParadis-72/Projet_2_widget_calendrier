@@ -9,7 +9,7 @@ Ce projet est un widget de calendrier pour PC, il permet de voir les taches/even
 
 
 # Entrées:
-Un url de calendrier .ical/.ics, entré dans le terminal au premier lancement du programme.
+Un url de calendrier .ical/.ics, entré dans le terminal au premier lancement du programme, ou dans le fichier .txt "sauvegarde_url" si le programme a déja été utilisé et que vous voulez changer de calendrier a afficher.
 <br><br>
 
 
