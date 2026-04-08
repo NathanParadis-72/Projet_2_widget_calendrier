@@ -23,7 +23,7 @@ Au démarrage du programme, l'utilisateur devra entrer un url particulier dans l
 
 Pour changer le calendrier affiché, supprimer le fichier "sauvegarde_url.txt". le programme demandera alors un nouvel url au prochain lancement.
 
-Après la sauvegarde de l'url, le programme crée au besoin, et sauvegarde automatiquement la version la plus récente du calendrier dans un fichier .ics, afin de pouvoir continuer à utiliser le calendrier hors ligne.
+Après la sauvegarde de l'url, le programme crée, au besoin, et sauvegarde automatiquement, la version la plus récente du calendrier dans un fichier .ics, afin de pouvoir continuer à utiliser le calendrier hors ligne.
 <br><br>
 
 
