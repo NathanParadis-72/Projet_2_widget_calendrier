@@ -1,12 +1,13 @@
 """
 Programme pour extraire de l'information pertinente d'un fichier .ical afin de pouvoir l'utiliser dans le widget calendrier
 Par: Nathan Paradis et Arnaud Baril
+Version de remise
 """
-
-
 
 import os
 import urllib.request
+
+
 
 
 
@@ -219,17 +220,3 @@ def formatage_listemere():
 
 
     return listemere
-
-
-
-
-
-
-
-
-
-
-#CODE QUI MARCHE HELL YEAH
-listemere = formatage_listemere()
-
-print(listemere)

@@ -9,7 +9,7 @@ Ce projet est un widget de calendrier pour PC, il permet de voir les taches/even
 
 
 # Entrées:
-Un url de calendrier .ical/.ics, entré dans le terminal au premier lancement du programme, ou dans le fichier .txt "sauvegarde_url" si le programme a déja été utilisé et que vous voulez changer de calendrier a afficher.
+Un url de calendrier .ical/.ics, entré dans le terminal au premier lancement du programme.
 <br><br>
 
 
@@ -19,7 +19,11 @@ Une fenetre de style widget sur votre écran d'ordinateur qui affiche les inform
 
 
 # Controle:
-Lorsque le programme est démarré, il demandera a l'utilisateur d'entrer un url particulier dans le terminal, cet url est très important car c'est lui qui s'occupe d'aller chercher les informations dans le calendrier de l'utilisateur ainsi que de 
+Lorsque le programme est démarré, il demandera a l'utilisateur d'entrer un url particulier dans le terminal (les instructions sont affichées, il s'agit de "l'url secret" du calendrier google de l'utilisateur), cet url est très important car c'est lui qui s'occupe d'aller chercher les informations dans le calendrier de l'utilisateur ainsi que de le mettre a jour a chaque lancement du programme. Si l'url existe deja dans un fichier de sauvegarde (créé automatiquement a la première utilisation), le programme ne demande pas d'url et met simplement le calendrier a jour s'il a acces a l'internet.
+
+Dans le cas ou l'utilisateur voudrait changer le calendrier affiché, il doit simplement supprimer le fichier "sauvegarde_url.txt", le programme demandera alors un nouvel url au prochain lancement.
+
+Après la sauvegarde de l'url, le programme sauvegarde automatiquement la version la plus récente du calendrier dans un fichier .ics, afin de pouvoir continuer a utiliser le calendrier même dans le cas ou l'utilisateur n'a pas acces a l'internet. Aucune action n'est requise de la part de l'utilisateur pour cette sauvegarde.
 <br><br>
 
 
@@ -49,7 +53,6 @@ Le calendrier se met automatiquement a jour grace au lien url du calendrier si l
 
 ### TRUCS A CHANGER AVANT LA REMISE ###
 - aligner les evenements a gauche a la place d'au centre dans les cases du calendrier?
-- finaliser la doc (readme, commentaires)
 - tester avec differents evenements (evenements qui se répetent, qui durent plusieurs journées, etc etc)
 - double check que jai pas écrit des niaiseries ou laissé des commentaires pour moi meme dans le code
 - autres idées/points?
