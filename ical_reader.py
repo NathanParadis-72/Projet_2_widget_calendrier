@@ -58,7 +58,7 @@ def mise_a_jour_cal(url_cal):
     Entrées: Le url du fichier .ics
     Sorties: Le fichier de sauvegarde de calendrier mis a jour
     """
-    #ensuite il va trouver le path du repertoire courant du code
+    #trouve le path du repertoire courant du code
     repertoire_code = os.path.dirname(os.path.abspath(__file__))
 
     #nommer le fichier de sauvegarde du calendrier
@@ -83,7 +83,7 @@ def extracteur_donnees_cal():
     donnees_cal = calendrier_ics.read() #sort les données du fichier .ics
     calendrier_ics.close()
     
-    #on enleve les caracteres dont on a pas besoin et on prépare la création de liste
+    #on enleve les caractères dont on a pas besoin et on prépare la création de liste
     calpropre = donnees_cal.replace("\n", ",").replace(",END:VCALENDAR", "")
     
     #crée une liste et sépare les items par toutes les fois ou c'est écrit "begin:vevent"
@@ -117,11 +117,11 @@ def sauvegarde_calendrier():
             listecal = extracteur_donnees_cal()
 
         except FileNotFoundError:
-            #si il ne trouve pas le fichier, il le crée. Premierement il demande un input
-            url_cal = input("Entrez le URL de votre calendrier (il se trouve dans 'settings and sharing' > 'integrate " \
+            #si il ne trouve pas le fichier, il le crée. Premièrement il demande un input
+            url_cal = input("Entrez le URL de votre calendrier google (il se trouve dans 'settings and sharing' > 'integrate " \
             "calendar' > 'secret adress in ical format')\n\nURL: ")
             
-            #sauvegarde le url dans un fichier text
+            #sauvegarde le url dans un fichier .txt
             sauvegarde_url = open('sauvegarde_url.txt', 'w+')
             sauvegarde_url.write(url_cal)
             sauvegarde_url.close()
