@@ -18,11 +18,11 @@ def trieur_liste(liste_evenement):
     """
     Fonction pour séparer la date de l'heure de début et de fin en deux items dans une liste. crée deux listes de
     deux items a partir des items 1 et 3 de la liste a l'entrée.
-    Entrées: liste d'un evenement .ics avec la date et heure de début a la position 1, et la date et heure de fin 
+    Entrées: liste d'un événement .ics avec la date et heure de début a la position 1, et la date et heure de fin 
     a la position 3
     Sorties: Aucun return, modifie seulement la liste qui entre afin qu'elle formatée comme ceci: une liste
     a la position 1 contenant la date de début et l'heure de fin dans deux items séparés, et une autre liste a la
-    position 3 qui contient la date et l'heure de fin de l'evenement.
+    position 3 qui contient la date et l'heure de fin de l'événement.
     """
     for i in range(4):
         if i % 2 == 0:
@@ -35,7 +35,7 @@ def trieur_liste(liste_evenement):
 def formateur_heure(liste_evenement):
     """
     Fonction pour formater des heures de format "HHMMSS" en heures de format "HHhMM"
-    Entrées: Liste d'evenement triée par la fonction "trieur liste", afin que les heures soient séparées 
+    Entrées: Liste d'événement triée par la fonction "trieur liste", afin que les heures soient séparées 
     des dates
     Sorties: Pas de return, modifie seulement la liste afin d'avoir des heures de format HHhMM (13h30 par exemple)
     pour pouvoir les envoyer au code du widget calendrier sans avoir à les traduire plus tard.
@@ -118,7 +118,7 @@ def sauvegarde_calendrier():
 
         except FileNotFoundError:
             #si il ne trouve pas le fichier, il le crée. Premièrement il demande un input
-            url_cal = input("Entrez le URL de votre calendrier google (il se trouve dans 'settings and sharing' > 'integrate " \
+            url_cal = input("Entrez le url secret de votre calendrier google (il se trouve dans 'settings and sharing' > 'integrate " \
             "calendar' > 'secret adress in ical format')\n\nURL: ")
             
             #sauvegarde le url dans un fichier .txt
@@ -181,18 +181,18 @@ def formatage_listemere():
     listecal = sauvegarde_calendrier()
 
     for evenement in listecal:
-        #creer une liste a partir des evennements dans la liste du calendrier
+        #créer une liste a partir des événements dans la liste du calendrier
         infos_evenement = str(evenement).split(",")
         
         
-        #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, plus le nom
+        #rendre la liste plus propre, enlever les trucs innutiles, seulement garder la date et heures, et le nom
         infos_evenement.remove(infos_evenement[0]) 
         for i in range(3): infos_evenement.remove(infos_evenement[-1])
         for i in range(6): infos_evenement.remove(infos_evenement[2])
         
         infos_evenement_propre = str(infos_evenement).replace("[", "").replace("]", "").replace("'", "").replace(",", ":")
 
-        #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque evenement
+        #refaire la liste mais en la splittant a des endroits differents pour préparer les clés pour chaque événement
         liste_evenement = str(infos_evenement_propre).split(":")
         
         
@@ -206,15 +206,15 @@ def formatage_listemere():
         
 
 
-        #on crée une nouvelle dictionnaire et on rentre les informations de l'evenement dedans
+        #on crée un nouveau dictionnaire et on entre les informations de l'événement dedans
         nouvel_evenement = {"nom" : liste_evenement[5], "debut" : liste_evenement[1], "fin" : liste_evenement[3]}
         
-        #et on rajoute la liste de l'événement dans le prochain item de la liste calendrier mere
+        #on rajoute la liste de l'événement dans le prochain item de la liste calendrier mère
         listemere.append(nouvel_evenement)
 
 
 
-    #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques KB
+    #fonction requise pour le projet scolaire, peut etre enlevée pour sauver quelques bytes
     output_listemere(listemere)
 
 
